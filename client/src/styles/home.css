@@ -1,0 +1,235 @@
+#hero {
+    width: 100%;
+    height: 63.2rem;
+    background: url(/home/desktop/image-hero2.png) #0f0f0f no-repeat;
+    background-position: 85% -9.7rem;
+    background-size: 70.8rem 88.6rem;
+}
+
+#hero-wrapper {
+    max-width: 39.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+    padding: 12.6rem 0 0 0;
+}
+
+#hero-overline {
+    color: var(--color-white);
+    opacity: 0.4964;
+}
+
+#hero-heading {
+    color: var(--color-white);
+}
+
+#hero-desc {
+    max-width: 34.9rem;
+    color: var(--color-white);
+    opacity: .75;
+}
+
+#hero-wrapper button {
+    margin-top: 1.6rem;
+    width: fit-content;
+}
+
+.products-categories {
+    margin: 20.2rem 0 16.8rem 0;
+}
+
+/* featured products */
+
+#featured-products {
+    margin-bottom: 20rem;
+}
+
+#product-1 {
+    position: relative;
+    max-width: 100%;
+    height: 56rem;
+    background-color: var(--color-orange);
+    border-radius: 8px;
+}
+
+#product-1::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: url(../../home/desktop/pattern-circles.svg) no-repeat;
+    background-size: 94.4rem;
+    background-position: -14.9rem -3.6rem;
+}
+
+#product-1::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: url(../../home/desktop/image-speaker-zx9.png) no-repeat;
+    background-position: 13.5rem 11rem;
+    background-size: 38.2rem;
+}
+
+#product-1-content {
+    position: absolute;
+    max-width: 35rem;
+    right: 9.5rem;
+    top: 13.3rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+#product-1-heading {
+    color: #FFF;
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 5.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#product-1-desc {
+    margin: 2.4rem 0 4rem 0;
+    opacity: .75;
+    color: var(--color-white);
+}
+
+
+#product-2 {
+    width: 100%;
+    height: 32rem;
+    margin: 4.8rem 0;
+    background: url(../../home/desktop/image-speaker-zx7.jpg) no-repeat right;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+#product-2-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3.2rem;
+    height: 100%;
+    width: fit-content;
+    padding-left: 9.5rem;
+}
+
+#product-3 {
+    width: 100%;
+    height: 32rem;
+    display: flex;
+    gap: 3rem;
+}
+
+.product-3-col {
+    border-radius: 8px;
+    background-color: var(--color-gray-300);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    gap: 3.2rem;
+    padding-left: 9.5rem;
+}
+
+.product-3-img {
+    background: url(../../home/desktop/image-earphones-yx1.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#shop-info {
+    margin-bottom: 20rem;
+}
+
+#shop-info-wrapper {
+    width: 100%;
+    height: 58.8rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.shop-info-col {
+    width: 54rem;
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#shop-info-content {
+    max-width: 44.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+#shop-info-content h2>span {
+    color: var(--color-orange);
+}
+
+#shop-info-content p {
+    opacity: .5;
+}
+
+.shop-info-col-bg {
+    background: url(../../shared/desktop/image-best-gear.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+    #product-2 {
+        background: url(../../home/tablet/image-speaker-zx7.jpg) no-repeat right;
+    }
+
+    #product-2-content {
+        padding-left: 6.2rem;
+    }
+
+    .product-3-col {
+        padding-left: 4.1rem;
+    }
+
+    .product-3-img {
+        background: url(../../home/tablet/image-earphones-yx1.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    #shop-info {
+        margin-bottom: 9.6rem;
+    }
+
+    #shop-info-wrapper {
+        height: 63.3rem;
+        flex-direction: column-reverse;
+        gap: 6.3rem;
+        text-align: center;
+    }
+
+    .shop-info-col {
+        width: 100%;
+        flex-direction: unset;
+        justify-content: center;
+    }
+
+    #shop-info-content {
+        max-width: 57.3rem;
+    }
+
+    .shop-info-col-bg {
+        background: url(../../shared/tablet/image-best-gear.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
