@@ -58,24 +58,24 @@ footer #line {
 }
 
 .facebook {
-    background: url("/shared/desktop/icon-facebook.svg") no-repeat center;
+    background: url("/shared/icon-facebook.svg") no-repeat center;
 }
-.twitter {
-    background: url("/shared/desktop/icon-twitter.svg") no-repeat center;
+.x {
+    background: url("/shared/icon-x.svg") no-repeat center;
 }
 .instagram {
-    background: url("/shared/desktop/icon-instagram.svg") no-repeat center;
+    background: url("/shared/icon-instagram.svg") no-repeat center;
 }
 
 .social-logo:hover.facebook {
-    background: url("/shared/desktop/facebook-hover.svg") no-repeat center !important;
+    background: url("/shared/facebook-hover.svg") no-repeat center !important;
     z-index: 10;
 }
-.social-logo:hover.twitter {
-    background: url("/shared/desktop/twitter-hover.svg") no-repeat center !important;
+.social-logo:hover.x {
+    background: url("/shared/x-hover.svg") no-repeat center !important;
     z-index: 10;
 }
 .social-logo:hover.instagram {
-    background: url("/shared/desktop/instagram-hover.svg") no-repeat center !important;
+    background: url("/shared/instagram-hover.svg") no-repeat center !important;
     z-index: 10;
 }

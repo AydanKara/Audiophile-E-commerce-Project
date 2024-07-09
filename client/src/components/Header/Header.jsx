@@ -6,7 +6,7 @@ const Header = () => {
       <div className="container">
         <div id="header-wrapper">
           <a id="logo" href="/">
-            <img src="./src/assets/shared/logo.svg" alt="website logo" />
+            <img src="/shared/logo.svg" alt="website logo" />
           </a>
           <nav>
             <ul id="nav-list">
