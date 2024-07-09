@@ -1,5 +1,5 @@
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import Header from './components/Layouts/Header/Header';
+import Footer from './components/Layouts/Footer/Footer';
 import './styles/base.css';
 
 function App() {
