@@ -1,48 +1,6 @@
-#shop-info {
-    margin-bottom: 20rem;
-}
-
-#shop-info-wrapper {
-    width: 100%;
-    height: 58.8rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 3rem;
-}
-
-.shop-info-col {
-    width: 54rem;
-    height: 100%;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#shop-info-content {
-    max-width: 44.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-#shop-info-content h2>span {
-    color: var(--color-orange);
-}
-
-#shop-info-content p {
-    opacity: .5;
-}
-
-.shop-info-col-bg {
-    background: url(../../shared/desktop/image-best-gear.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
 /* responsive */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     #product-2 {
         background: url(../../home/tablet/image-speaker-zx7.jpg) no-repeat right;
     }
@@ -87,4 +45,4 @@
         background-size: cover;
         background-position: center;
     }
-}
+} */

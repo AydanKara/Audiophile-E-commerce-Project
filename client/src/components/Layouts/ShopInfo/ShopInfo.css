@@ -1,0 +1,38 @@
+#shop-info {
+    margin-bottom: 20rem;
+}
+
+#shop-info-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+.shop-info-col {
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#shop-info-content {
+    max-width: 44.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+#shop-info-content h2>span {
+    color: var(--color-orange);
+}
+
+#shop-info-content p {
+    opacity: .5;
+}
+
+.shop-info-img {
+    border-radius: 8px;
+}
