@@ -1,3 +1,5 @@
+import "./Hero.css"
+
 const Hero = () => {
   return (
     <section id="hero">
