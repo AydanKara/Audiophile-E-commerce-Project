@@ -3,6 +3,7 @@ import Footer from './components/Layouts/Footer/Footer';
 import './styles/base.css';
 import HomePage from './pages/HomePage';
 import CatalogPage from './pages/CatalogPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
 
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
     <>
       <Header />
       {/* <HomePage /> */}
-      <CatalogPage />
+      {/* <CatalogPage /> */}
+      <ProductDetailsPage />
       <Footer />
     </>
   )
