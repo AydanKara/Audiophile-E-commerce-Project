@@ -1,0 +1,33 @@
+.first {
+    grid-area: first;
+    max-width: 44.5rem;
+    max-height: 28rem;
+}
+
+.second {
+    grid-area: second;
+    max-width: 44.5rem;
+    max-height: 28rem;
+    align-self: end;
+}
+
+.third {
+    grid-area: third;
+    max-width: 63.5rem;
+    max-height: 59.2rem;
+}
+
+#product-gallery {
+    margin-top: 16rem;
+    display: grid;
+    grid-template-areas:
+        "first third"
+        "second third";
+    justify-content: space-between;
+}
+
+#product-gallery img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}

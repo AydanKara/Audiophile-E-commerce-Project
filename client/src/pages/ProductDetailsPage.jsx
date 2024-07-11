@@ -1,5 +1,6 @@
 import Categories from "../components/Categories/Categories";
 import ShopInfo from "../components/Layouts/ShopInfo/ShopInfo";
+import ProductGallery from "../components/ProductGallery/ProductGallery";
 import "../styles/product-details.css"
 
 const ProductDetailsPage = () => {
@@ -89,26 +90,7 @@ const ProductDetailsPage = () => {
         </div>
       </section>
       <section className="container">
-        <ul id="product-gallery">
-          <li className="first">
-            <img
-              src="/categories/products/image-gallery-1.jpg"
-              alt="First image from gallery"
-            />
-          </li>
-          <li className="second">
-            <img
-              src="/categories/products/image-gallery-2.jpg"
-              alt="Second image from gallery"
-            />
-          </li>
-          <li className="third">
-            <img
-              src="/categories/products/image-gallery-3.jpg"
-              alt="Third image from gallery"
-            />
-          </li>
-        </ul>
+        <ProductGallery />
       </section>
       <section className="container">
         <div className="product-others">
