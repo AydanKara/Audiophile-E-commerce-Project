@@ -14,14 +14,9 @@ const Header = () => {
                 <a href="/">HOME</a>
               </li>
               <li className="nav-item">
-                <a href="/products/headphones">HEADPHONES</a>
+                <a href="/products/headphones">Catalog</a>
               </li>
-              <li className="nav-item">
-                <a href="/products/speakers">SPEAKERS</a>
-              </li>
-              <li className="nav-item">
-                <a href="/products/earphones">EARPHONES</a>
-              </li>
+
               <li className="nav-item">
                 <a href="/register">Register</a>
               </li>
