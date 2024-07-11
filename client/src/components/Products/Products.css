@@ -1,0 +1,9 @@
+.products-wrapper {
+    margin-top: 16rem;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16rem
+}
