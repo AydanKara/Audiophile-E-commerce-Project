@@ -1,6 +1,7 @@
 import Categories from "../components/Categories/Categories";
 import ShopInfo from "../components/Layouts/ShopInfo/ShopInfo";
 import ProductGallery from "../components/ProductGallery/ProductGallery";
+import ProductOthers from "../components/ProductOthers/ProductOthers";
 import "../styles/product-details.css"
 
 const ProductDetailsPage = () => {
@@ -93,22 +94,7 @@ const ProductDetailsPage = () => {
         <ProductGallery />
       </section>
       <section className="container">
-        <div className="product-others">
-          <h3>you may also like</h3>
-          <ul className="others-list">
-            {/* <% for (const other of product.others) { %> */}
-            <li className="other-item">
-              <div className="other-img">
-                <img src="/shared/image-zx9-speaker.jpg" alt="Product Image" />
-              </div>
-              <h5>XX59</h5>
-              <a href="/products/:id" className="btn-1">
-                See Product
-              </a>
-            </li>
-            {/* <% } %> */}
-          </ul>
-        </div>
+        <ProductOthers />
       </section>
       <section className="products-categories">
         <div className="container">

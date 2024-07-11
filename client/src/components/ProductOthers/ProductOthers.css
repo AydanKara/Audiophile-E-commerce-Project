@@ -1,0 +1,31 @@
+.product-others {
+    margin-top: 16rem;
+    text-align: center;
+}
+
+.product-others .others-list {
+    margin-top: 6.4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.others-list .other-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.other-item .other-img {
+    width: 35rem;
+    height: 31.8rem;
+}
+
+.other-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.other-item h5 {
+    margin: 4rem 0 3.2rem 0;
+}

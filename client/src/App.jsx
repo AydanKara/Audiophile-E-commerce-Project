@@ -11,7 +11,7 @@ function App() {
     <>
       <Header />
       {/* <HomePage /> */}
-      {/* <CatalogPage /> */}
+     {/*  <CatalogPage /> */}
       <ProductDetailsPage />
       <Footer />
     </>
