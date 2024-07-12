@@ -4,6 +4,7 @@ import './styles/base.css';
 import HomePage from './pages/HomePage';
 import CatalogPage from './pages/CatalogPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
       <Header />
       {/* <HomePage /> */}
      {/*  <CatalogPage /> */}
-      <ProductDetailsPage />
+      {/* <ProductDetailsPage /> */}
+      <LoginPage />
       <Footer />
     </>
   )

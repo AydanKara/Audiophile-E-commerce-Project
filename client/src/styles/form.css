@@ -1,0 +1,20 @@
+form hr {
+    margin: 2rem;
+}
+
+label {
+    display: block;
+    color: var(--color-black);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.214px;
+    margin-bottom: 1rem;
+}
+
+input {
+    width: 90%;
+    padding: 1.8rem 0 1.8rem 2.4rem;
+    margin-bottom: 2.4rem;
+    border: 1px solid #CFCFCF;
+    border-radius: var(--border-radius-8);
+}
