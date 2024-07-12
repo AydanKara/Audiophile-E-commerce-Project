@@ -4,7 +4,7 @@ import "../styles/form.css";
 const LoginPage = () => {
   return (
     <>
-      <div id="new-account">
+      <div id="site-heading">
         <h1>Login</h1>
       </div>
       {/*   if (inputData.errorMessage) { 
@@ -19,12 +19,7 @@ const LoginPage = () => {
         <input type="hidden" name="_csrf" defaultValue="locals.csrfToken" />
         <p>
           <label htmlFor="email">E-Mail</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            defaultValue=""
-          />
+          <input type="email" name="email" id="email" defaultValue="" />
         </p>
         <p>
           <label htmlFor="password">Password</label>

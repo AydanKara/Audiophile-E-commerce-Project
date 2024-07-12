@@ -12,8 +12,21 @@ label {
 }
 
 input {
+    font-size: inherit;
+    font-weight: bold;
     width: 90%;
     padding: 1.8rem 0 1.8rem 2.4rem;
+    margin-bottom: 2.4rem;
+    border: 1px solid #CFCFCF;
+    border-radius: var(--border-radius-8);
+}
+
+textarea {
+    font-size: inherit;
+    font-weight: bold;
+    width: 90%;
+    padding: 1.8rem 0 1.8rem 2.4rem;
+    height: 12rem;
     margin-bottom: 2.4rem;
     border: 1px solid #CFCFCF;
     border-radius: var(--border-radius-8);

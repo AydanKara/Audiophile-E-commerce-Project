@@ -14,9 +14,11 @@ const Header = () => {
                 <a href="/">HOME</a>
               </li>
               <li className="nav-item">
-                <a href="/products/headphones">Catalog</a>
+                <a href="/catalog">Catalog</a>
               </li>
-
+              <li className="nav-item">
+                <a href="/create">Create</a>
+              </li>
               <li className="nav-item">
                 <a href="/register">Register</a>
               </li>
