@@ -20,7 +20,7 @@ header {
     display: flex;
 }
 
-#logo {
+.logo {
     flex-basis: 50%;
 }
 
@@ -133,7 +133,7 @@ nav {
         display: none;
     }
 
-    #header-wrapper #logo {
+    #header-wrapper .logo {
         flex-basis: unset;
         margin-left: 4.2rem;
     }

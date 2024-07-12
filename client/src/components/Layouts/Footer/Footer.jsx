@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
@@ -7,9 +8,9 @@ const Footer = () => {
         <span id="line" />
         <div id="footer-wrapper">
           <div id="footer-nav">
-            <a id="logo" href="/">
+            <Link className="logo" to="/">
               <img src="/shared/logo.svg" alt="" />
-            </a>
+            </Link>
             <nav>
               <ul id="nav-list">
                 <li className="nav-item">HOME</li>
@@ -30,9 +31,9 @@ const Footer = () => {
               <p>Copyright 2024. All Rights Reserved</p>
             </div>
             <div id="footer-social">
-              <a className="social-logo facebook" href="/" />
-              <a className="social-logo x" href="/" />
-              <a className="social-logo instagram" href="/" />
+              <Link className="social-logo facebook" to="/"></Link>
+              <Link className="social-logo x" to="/"></Link>
+              <Link className="social-logo instagram" to="/"></Link>
             </div>
           </div>
         </div>

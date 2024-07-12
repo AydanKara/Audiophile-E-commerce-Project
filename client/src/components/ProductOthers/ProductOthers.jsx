@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./ProductOthers.css";
 
 const ProductOthers = () => {
@@ -11,27 +12,27 @@ const ProductOthers = () => {
             <img src="/shared/image-zx9-speaker.jpg" alt="Product Image" />
           </div>
           <h5>XX59</h5>
-          <a href="/products/:id" className="btn-1">
+          <Link to="/products/:id" className="btn-1">
             See Product
-          </a>
+          </Link>
         </li>
         <li className="other-item">
           <div className="other-img">
             <img src="/shared/image-zx9-speaker.jpg" alt="Product Image" />
           </div>
           <h5>XX59</h5>
-          <a href="/products/:id" className="btn-1">
+          <Link to="/products/:id" className="btn-1">
             See Product
-          </a>
+          </Link>
         </li>
         <li className="other-item">
           <div className="other-img">
             <img src="/shared/image-zx9-speaker.jpg" alt="Product Image" />
           </div>
           <h5>XX59</h5>
-          <a href="/products/:id" className="btn-1">
+          <Link to="/products/:id" className="btn-1">
             See Product
-          </a>
+          </Link>
         </li>
         {/* <% } %> */}
       </ul>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/auth.css";
 import "../styles/form.css";
 
@@ -32,7 +33,7 @@ const LoginPage = () => {
         </p>
         <button className="btn-1">Login</button>
         <p className="btn-2 auth">
-          <a href="/register">Create a new user</a>
+          <Link to="/register">Create a new user</Link>
           <img src="shared/icon-arrow-right.svg" alt="icon-arrow-right" />
         </p>
       </form>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./FeaturedProductItem.css";
 
 const FeaturedProductItem = () => {
@@ -8,9 +9,9 @@ const FeaturedProductItem = () => {
       </div>
       <div className="product-col">
         <h4>YX1 EARPHONES</h4>
-        <a href="/" className="btn-1 btn-alt-3">
+        <Link to="/" className="btn-1 btn-alt-3">
           See product
-        </a>
+        </Link>
       </div>
     </div>
   );

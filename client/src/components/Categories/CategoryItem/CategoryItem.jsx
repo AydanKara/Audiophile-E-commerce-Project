@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./CategoryItem.css";
 
 const CategoryItem = () => {
@@ -13,7 +14,7 @@ const CategoryItem = () => {
       <div className="category-title">
         <h6>Headphones</h6>
         <p className="btn-2">
-          <a href="/products/headphones">Shop</a>
+          <Link to="/products/headphones">Shop</Link>
           <img src="/shared/icon-arrow-right.svg" alt="icon-arrow-right" />
         </p>
       </div>

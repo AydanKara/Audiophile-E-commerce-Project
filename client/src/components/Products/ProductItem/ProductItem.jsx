@@ -1,4 +1,5 @@
-import "./ProductItem.css"
+import { Link } from "react-router-dom";
+import "./ProductItem.css";
 
 const ProductItem = () => {
   return (
@@ -22,9 +23,9 @@ const ProductItem = () => {
                 reproducing the balanced depth and precision of studio-quality
                 sound.
               </p>
-              <a href="/products/:id" className="btn-1">
+              <Link to="/products/:id" className="btn-1">
                 See Product
-              </a>
+              </Link>
             </div>
           </div>
         </div>
