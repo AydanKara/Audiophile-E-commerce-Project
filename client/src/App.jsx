@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import CatalogPage from './pages/CatalogPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
       {/* <HomePage /> */}
      {/*  <CatalogPage /> */}
       {/* <ProductDetailsPage /> */}
-      <LoginPage />
+      {/* <LoginPage /> */}
+      <RegisterPage />
       <Footer />
     </>
   )
