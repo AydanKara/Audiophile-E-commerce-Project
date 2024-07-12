@@ -4,8 +4,8 @@ import "../styles/form.css";
 const RegisterPage = () => {
   return (
     <>
-      <div id="site-heading">
-        <h1>Create new Account</h1>
+      <div className="site-heading">
+        <h1 className="heading-title">Create new Account</h1>
       </div>
       {/*   if (inputData.errorMessage) { 
   <div class="alert">

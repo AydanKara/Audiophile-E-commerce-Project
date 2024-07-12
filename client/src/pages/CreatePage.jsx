@@ -2,7 +2,7 @@ const CreatePage = () => {
   return (
     <>
       <div className="site-heading">
-        <h1>Create new Product</h1>
+        <h1 className="heading-title">Create new Product</h1>
       </div>
       {/*   if (inputData.errorMessage) { 
 <div class="alert">

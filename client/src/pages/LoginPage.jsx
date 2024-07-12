@@ -4,8 +4,8 @@ import "../styles/form.css";
 const LoginPage = () => {
   return (
     <>
-      <div id="site-heading">
-        <h1>Login</h1>
+      <div className="site-heading">
+        <h1 className="heading-title">Login</h1>
       </div>
       {/*   if (inputData.errorMessage) { 
   <div class="alert">
