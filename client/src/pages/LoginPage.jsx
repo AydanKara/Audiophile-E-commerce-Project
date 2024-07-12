@@ -31,7 +31,7 @@ const LoginPage = () => {
           />
         </p>
         <button className="btn-1">Login</button>
-        <p className="btn-2">
+        <p className="btn-2 auth">
           <a href="/register">Create a new user</a>
           <img src="shared/icon-arrow-right.svg" alt="icon-arrow-right" />
         </p>

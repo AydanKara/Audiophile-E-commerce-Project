@@ -57,7 +57,7 @@ const RegisterPage = () => {
           <input type="text" name="city" id="city" defaultValue="" />
         </p>
         <button className="btn-1">Create Account</button>
-        <p className="btn-2">
+        <p className="btn-2 auth">
           <a href="/login">Login instead</a>
           <img src="shared/icon-arrow-right.svg" alt="icon-arrow-right" />
         </p>
