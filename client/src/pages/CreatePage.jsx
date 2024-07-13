@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as productService from "../services/productService";
 
 const CreatePage = () => {
+  const navigate = useNavigate()
   const [category, setCategory] = useState("Headphones");
   const [formData, setFormData] = useState({
     name: "",
@@ -32,6 +34,7 @@ const CreatePage = () => {
     try {
       await productService.create(category, formData);
       resetFormData();
+      navigate("/catalog")
     } catch (error) {
       console.log(error.message);
     }

@@ -7,7 +7,7 @@
     justify-content: center;
 }
 
-h1 {
+.heading-title {
     color: var(--color-white);
     font-size: 4rem;
     font-weight: 700;

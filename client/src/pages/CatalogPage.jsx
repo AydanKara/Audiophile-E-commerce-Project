@@ -6,7 +6,7 @@ const CatalogPage = () => {
   return (
     <main>
       <div className="category-heading">
-        <h1>All Products</h1>
+        <h1 className="heading-title">All Products</h1>
       </div>
       <Products />
       <Categories />
