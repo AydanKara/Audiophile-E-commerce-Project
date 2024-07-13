@@ -10,14 +10,17 @@ const Products = () => {
     productService.getAll().then((result) => setProducts(result));
   }, []);
 
-  console.log(products);
+  console.log(products)
   return (
     <section className="container">
       <div className="products-wrapper">
         <ul className="product-list">
-          <ProductItem />
-          <ProductItem />
+          {products.map((product) => (
+            <ProductItem key={product._id} {...product} />
+          ))}
         </ul>
+
+        {products.length === 0 && <p className="no-products">No products</p>}
       </div>
     </section>
   );
