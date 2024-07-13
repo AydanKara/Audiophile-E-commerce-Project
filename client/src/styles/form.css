@@ -11,7 +11,7 @@ label {
     margin-bottom: 1rem;
 }
 
-input {
+input, select {
     font-size: inherit;
     font-weight: bold;
     width: 90%;
