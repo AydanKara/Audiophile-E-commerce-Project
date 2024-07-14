@@ -4,7 +4,7 @@ import { useContext } from "react";
 import AuthContext from "../../../context/authContext";
 
 const Header = () => {
-  const { isAuthenticated, email } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <header>
       <div className="container">
