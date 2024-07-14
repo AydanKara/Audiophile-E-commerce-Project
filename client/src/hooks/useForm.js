@@ -16,10 +16,15 @@ const useForm = (submitHandler, initialValues) => {
     submitHandler(values);
   };
 
+  const resetForm = () => {
+    setValues(initialValues);
+  };
+
   return {
     values,
     onChange,
     onSubmit,
+    resetForm
   };
 };
 

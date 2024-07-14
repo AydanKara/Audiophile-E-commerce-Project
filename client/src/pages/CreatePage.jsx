@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as productService from "../services/productService";
+import useForm from "../hooks/useForm";
 
 const CreatePage = () => {
   const navigate = useNavigate()
-  const [formData, setFormData] = useState({
+  const {values, onChange, resetForm} = useForm({
     category: "",
     name: "",
     image: "",
@@ -13,27 +13,12 @@ const CreatePage = () => {
     features: "",
   });
 
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const resetFormData = () => {
-    setFormData({
-      name: "",
-      image: "",
-      price: "",
-      description: "",
-      features: "",
-    });
-  };
-
   const onSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await productService.create(formData.category, formData);
-      resetFormData();
+      await productService.create(values.category, values);
+      resetForm();
       navigate("/catalog")
     } catch (error) {
       console.log(error.message);
@@ -56,11 +41,11 @@ const CreatePage = () => {
           <label htmlFor="category">Category</label>
           <select
             name="category"
-            value={formData.category}
+            value={values?.category}
             onChange={onChange}
             id="category"
           >
-            <option value="" disabled>Please select category</option>
+            <option value="">Please select category</option>
             <option value="Headphones">Headphones</option>
             <option value="Earphones">Earphones</option>
             <option value="Speakers">Speakers</option>
@@ -72,7 +57,7 @@ const CreatePage = () => {
             type="text"
             name="name"
             id="name"
-            value={formData.name}
+            value={values?.name}
             onChange={onChange}
           />
         </p>
@@ -82,7 +67,7 @@ const CreatePage = () => {
             type="text"
             name="image"
             id="image"
-            value={formData.image}
+            value={values?.image}
             onChange={onChange}
           />
         </p>
@@ -92,7 +77,7 @@ const CreatePage = () => {
             type="number"
             name="price"
             id="price"
-            value={formData.price}
+            value={values?.price}
             onChange={onChange}
           />
         </p>
@@ -101,7 +86,7 @@ const CreatePage = () => {
           <textarea
             name="description"
             id="description"
-            value={formData.description}
+            value={values?.description}
             onChange={onChange}
           ></textarea>
         </p>
@@ -110,7 +95,7 @@ const CreatePage = () => {
           <textarea
             name="features"
             id="features"
-            value={formData.features}
+            value={values?.features}
             onChange={onChange}
           ></textarea>
         </p>
