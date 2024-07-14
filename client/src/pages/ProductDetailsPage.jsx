@@ -9,14 +9,13 @@ import "../styles/product-details.css";
 
 const ProductDetailsPage = () => {
   const { category, productId } = useParams();
-  console.log(category, productId);
+  
   const [product, setProduct] = useState({});
 
   useEffect(() => {
     productService.getOne(category, productId).then(setProduct);
   }, [category, productId]);
 
-  console.log(product)
   return (
     <main>
       <section className="container">

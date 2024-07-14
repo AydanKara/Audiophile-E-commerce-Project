@@ -10,7 +10,7 @@ const Products = () => {
     productService.getAll().then((result) => setProducts(result));
   }, []);
 
-  console.log(products)
+  
   return (
     <section className="container">
       <div className="products-wrapper">

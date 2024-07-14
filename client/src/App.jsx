@@ -9,6 +9,8 @@ import "./styles/base.css";
 import { useState } from "react";
 import AuthContext from "./context/authContext";
 import * as authService from "./services/authService";
+import Header from "./components/Layouts/Header/Header";
+import Footer from "./components/Layouts/Footer/Footer";
 
 function App() {
   const [auth, setAuth] = useState({});
@@ -18,11 +20,28 @@ function App() {
     const result = await authService.login(values.email, values.password);
 
     setAuth(result);
-    console.log(auth);
+    
     navigate("/");
   };
+
+  const registerSubmitHandler = async (values) => {
+    const result = await authService.register(values.email, values.password);
+
+    setAuth(result);
+    navigate("/");
+  };
+
+  const values = {
+    loginSubmitHandler,
+    registerSubmitHandler,
+    email: auth.email,
+    isAuthenticated: !!auth.email,
+  };
+
+  
   return (
-    <AuthContext.Provider value={{ loginSubmitHandler }}>
+    <AuthContext.Provider value={values}>
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
@@ -34,6 +53,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
+      <Footer />
     </AuthContext.Provider>
   );
 }

@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
 import "../styles/form.css";
+import { useContext } from "react";
+import AuthContext from "../context/authContext";
+import useForm from "../hooks/useForm";
 
 const RegisterPage = () => {
+  const { registerSubmitHandler } = useContext(AuthContext);
+
+  const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
+    email: "",
+    password: "",
+    repass: "",
+  });
+
   return (
     <>
       <div className="site-heading">
@@ -16,19 +27,15 @@ const RegisterPage = () => {
     </p>
   </div>
    }  */}
-      <form action="/register" method="POST">
-        <input type="hidden" name="" defaultValue="" />
+      <form onSubmit={onSubmit}>
         <p>
           <label htmlFor="email">E-Mail</label>
-          <input type="email" name="email" id="email" defaultValue="" />
-        </p>
-        <p>
-          <label htmlFor="confirm-email">Confirm E-Mail</label>
           <input
             type="email"
-            name="confirm-email"
-            id="confirm-email"
-            defaultValue=""
+            name="email"
+            id="email"
+            onChange={onChange}
+            value={values?.email}
           />
         </p>
         <p>
@@ -37,10 +44,22 @@ const RegisterPage = () => {
             type="password"
             name="password"
             id="password"
-            defaultValue=""
+            onChange={onChange}
+            value={values?.password}
           />
         </p>
-        <hr />
+        <p>
+          <label htmlFor="repass">Confirm Password</label>
+          <input
+            type="password"
+            name="repass"
+            id="repass"
+            onChange={onChange}
+            value={values?.repass}
+          />
+        </p>
+
+        {/*  <hr />
         <p>
           <label htmlFor="fullname">Full Name</label>
           <input type="text" name="fullname" id="fullname" defaultValue="" />
@@ -56,8 +75,10 @@ const RegisterPage = () => {
         <p>
           <label htmlFor="city">City</label>
           <input type="text" name="city" id="city" defaultValue="" />
-        </p>
-        <button className="btn-1">Create Account</button>
+        </p> */}
+        <button type="submit" className="btn-1">
+          Create Account
+        </button>
         <p className="btn-2 auth">
           <Link to="/login">Login instead</Link>
           <img src="shared/icon-arrow-right.svg" alt="icon-arrow-right" />
