@@ -12,8 +12,8 @@ const useForm = (submitHandler, initialValues) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    submitHandler(values);
+    console.log(values)
+    /* submitHandler(values); */
   };
 
   const resetForm = () => {

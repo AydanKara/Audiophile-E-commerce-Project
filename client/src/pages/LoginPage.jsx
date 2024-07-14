@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
 import "../styles/form.css";
+import useForm from "../hooks/useForm";
 
 const LoginPage = () => {
+  const { values, onChange, onSubmit } = useForm({
+    email: "",
+    password: "",
+  });
   return (
     <>
       <div className="site-heading">
@@ -16,11 +21,16 @@ const LoginPage = () => {
     </p>
   </div>
    }  */}
-      <form action="/login" method="POST">
-        <input type="hidden" name="_csrf" defaultValue="locals.csrfToken" />
+      <form onSubmit={onSubmit}>
         <p>
           <label htmlFor="email">E-Mail</label>
-          <input type="email" name="email" id="email" defaultValue="" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onChange={onChange}
+            value={values?.email}
+          />
         </p>
         <p>
           <label htmlFor="password">Password</label>
@@ -28,10 +38,13 @@ const LoginPage = () => {
             type="password"
             name="password"
             id="password"
-            defaultValue=""
+            onChange={onChange}
+            value={values?.password}
           />
         </p>
-        <button className="btn-1">Login</button>
+        <button type="submit" className="btn-1">
+          Login
+        </button>
         <p className="btn-2 auth">
           <Link to="/register">Create a new user</Link>
           <img src="shared/icon-arrow-right.svg" alt="icon-arrow-right" />
