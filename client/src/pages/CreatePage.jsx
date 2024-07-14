@@ -4,8 +4,8 @@ import * as productService from "../services/productService";
 
 const CreatePage = () => {
   const navigate = useNavigate()
-  const [category, setCategory] = useState("Headphones");
   const [formData, setFormData] = useState({
+    category: "",
     name: "",
     image: "",
     price: "",
@@ -32,7 +32,7 @@ const CreatePage = () => {
     e.preventDefault();
 
     try {
-      await productService.create(category, formData);
+      await productService.create(formData.category, formData);
       resetFormData();
       navigate("/catalog")
     } catch (error) {
@@ -56,10 +56,11 @@ const CreatePage = () => {
           <label htmlFor="category">Category</label>
           <select
             name="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            value={formData.category}
+            onChange={onChange}
             id="category"
           >
+            <option value="" disabled>Please select category</option>
             <option value="Headphones">Headphones</option>
             <option value="Earphones">Earphones</option>
             <option value="Speakers">Speakers</option>

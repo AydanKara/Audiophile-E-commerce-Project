@@ -22,7 +22,7 @@ const ProductItem = (product) => {
               <p className="product-desc">
                 {product.description}
               </p>
-              <Link to="/products/:id" className="btn-1">
+              <Link to={`/${product.category}/${product._id}/details`} className="btn-1">
                 See Product
               </Link>
             </div>

@@ -17,6 +17,12 @@ export const getAll = async () => {
   return fetchedProducts;
 };
 
+export const getOne = async (category, productId) => {
+  const result = await request.get(`${baseUrl}/${category}/${productId}`);
+
+  return result;
+};
+
 export const create = async (category, productData) => {
   const result = await request.post(`${baseUrl}/${category}`, productData);
 

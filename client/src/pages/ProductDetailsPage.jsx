@@ -1,10 +1,22 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import * as productService from "../services/productService";
 import Categories from "../components/Categories/Categories";
 import ShopInfo from "../components/Layouts/ShopInfo/ShopInfo";
 import ProductGallery from "../components/ProductGallery/ProductGallery";
 import ProductOthers from "../components/ProductOthers/ProductOthers";
-import "../styles/product-details.css"
+import "../styles/product-details.css";
 
 const ProductDetailsPage = () => {
+  const { category, productId } = useParams();
+  console.log(category, productId);
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    productService.getOne(category, productId).then(setProduct);
+  }, [category, productId]);
+
+  console.log(product)
   return (
     <main>
       <section className="container">
@@ -19,21 +31,18 @@ const ProductDetailsPage = () => {
                   <li className="col-1">
                     <div className="product-image">
                       <img
-                        src="/categories/products/image-product.jpg"
+                        src={product.image}
                         alt=""
                       />
                     </div>
                   </li>
                   <li className="col-2">
                     <div className="product-info">
-                      <h2>XX99 MARK II HEADPHONES</h2>
+                      <h2>{product.name}</h2>
                       <p className="product-desc">
-                        The new XX99 Mark II headphones is the pinnacle of
-                        pristine audio. It redefines your premium headphone
-                        experience by reproducing the balanced depth and
-                        precision of studio-quality sound.
+                        {product.description}
                       </p>
-                      <h6>$ 2,999</h6>
+                      <h6>$ {product.price}</h6>
                       <div id="product-action">
                         <div id="product-quantity">
                           <span id="minus">-</span>
@@ -49,20 +58,7 @@ const ProductDetailsPage = () => {
                   <li id="features">
                     <h3>Features</h3>
                     <p>
-                      Featuring a genuine leather head strap and premium
-                      earcups, these headphones deliver superior comfort for
-                      those who like to enjoy endless listening. It includes
-                      intuitive controls designed for any situation. Whether
-                      you’re taking a business call or just in your own personal
-                      space, the auto on/off and pause features ensure that
-                      you’ll never miss a beat. The advanced Active Noise
-                      Cancellation with built-in equalizer allow you to
-                      experience your audio world on your terms. It lets you
-                      enjoy your audio in peace, but quickly interact with your
-                      surroundings when you need to. Combined with Bluetooth 5.
-                      0 compliant connectivity and 17 hour battery life, the
-                      XX99 Mark II headphones gives you superior sound,
-                      cutting-edge technology, and a modern design aesthetic.
+                      {product.features}
                     </p>
                   </li>
                   <li id="in-the-box">

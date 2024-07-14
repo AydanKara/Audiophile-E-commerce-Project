@@ -4,6 +4,7 @@ import "./FeaturedProducts.css";
 const FeaturedProducts = () => {
   return (
     <section id="featured-products">
+      <h3>Featured products</h3>
       <div className="container">
         <FeaturedProductItem />
         <FeaturedProductItem />
