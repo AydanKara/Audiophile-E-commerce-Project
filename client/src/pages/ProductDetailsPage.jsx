@@ -8,13 +8,13 @@ import ProductOthers from "../components/ProductOthers/ProductOthers";
 import "../styles/product-details.css";
 
 const ProductDetailsPage = () => {
-  const { category, productId } = useParams();
-  
+  const { productId } = useParams();
+
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    productService.getOne(category, productId).then(setProduct);
-  }, [category, productId]);
+    productService.getOne(productId).then(setProduct);
+  }, [productId]);
 
   return (
     <main>
@@ -29,18 +29,13 @@ const ProductDetailsPage = () => {
                 <ul className="product-wrapper">
                   <li className="col-1">
                     <div className="product-image">
-                      <img
-                        src={product.image}
-                        alt=""
-                      />
+                      <img src={product.image} alt="" />
                     </div>
                   </li>
                   <li className="col-2">
                     <div className="product-info">
                       <h2>{product.name}</h2>
-                      <p className="product-desc">
-                        {product.description}
-                      </p>
+                      <p className="product-desc">{product.description}</p>
                       <h6>$ {product.price}</h6>
                       <div id="product-action">
                         <div id="product-quantity">
@@ -56,9 +51,7 @@ const ProductDetailsPage = () => {
                 <ul id="product-details">
                   <li id="features">
                     <h3>Features</h3>
-                    <p>
-                      {product.features}
-                    </p>
+                    <p>{product.features}</p>
                   </li>
                   <li id="in-the-box">
                     <h3>In The Box</h3>

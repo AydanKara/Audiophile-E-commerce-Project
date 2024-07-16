@@ -15,7 +15,7 @@ import Logout from "./components/Logout/Logout";
 
 function App() {
   const [auth, setAuth] = useState(() => {
-    localStorage.removeItem("accessToken")
+    localStorage.removeItem("accessToken");
     return {};
   });
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function App() {
     const result = await authService.login(values.email, values.password);
 
     setAuth(result);
-    localStorage.setItem("accessToken", result.accessToken)
+    localStorage.setItem("accessToken", result.accessToken);
     navigate("/");
   };
 
@@ -32,14 +32,14 @@ function App() {
     const result = await authService.register(values.email, values.password);
 
     setAuth(result);
-    localStorage.setItem("accessToken", result.accessToken)
+    localStorage.setItem("accessToken", result.accessToken);
     navigate("/");
   };
 
   const logoutHandler = () => {
-    setAuth({})
-    localStorage.removeItem("accessToken")
-  }
+    setAuth({});
+    localStorage.removeItem("accessToken");
+  };
 
   const values = {
     loginSubmitHandler,
@@ -49,7 +49,6 @@ function App() {
     isAuthenticated: !!auth?.email,
   };
 
-  
   return (
     <AuthContext.Provider value={values}>
       <Header />
@@ -57,7 +56,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route
-          path="/:category/:productId/details"
+          path="/catalog/:productId/details"
           element={<ProductDetailsPage />}
         />
         <Route path="/create" element={<CreatePage />} />

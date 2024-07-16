@@ -1,30 +1,20 @@
 import * as request from "../api/request";
 
-const baseUrl = "http://localhost:3030/jsonstore/categories";
+const baseUrl = "http://localhost:3030/data/products";
 
 export const getAll = async () => {
-  const categories = ["Headphones", "Earphones", "Speakers"];
-  const fetchedProducts = [];
-  for (const category of categories) {
-    const response = await request.get(`${baseUrl}/${category}`);
-    if (response) {
-      const categoryProducts = Object.values(response);
-      fetchedProducts.push(...categoryProducts);
-    } else {
-      console.error(`Unexpected data format for category: ${category}`);
-    }
-  }
-  return fetchedProducts;
+  const result = await request.get(`${baseUrl}`);
+  return result;
 };
 
-export const getOne = async (category, productId) => {
-  const result = await request.get(`${baseUrl}/${category}/${productId}`);
+export const getOne = async (productId) => {
+  const result = await request.get(`${baseUrl}/${productId}`);
 
   return result;
 };
 
-export const create = async (category, productData) => {
-  const result = await request.post(`${baseUrl}/${category}`, productData);
+export const create = async (productData) => {
+  const result = await request.post(`${baseUrl}`, productData);
 
   return result;
 };

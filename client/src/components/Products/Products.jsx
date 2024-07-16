@@ -9,8 +9,7 @@ const Products = () => {
   useEffect(() => {
     productService.getAll().then((result) => setProducts(result));
   }, []);
-
-  
+  products.map((product) => console.log((product.category)))
   return (
     <section className="container">
       <div className="products-wrapper">
@@ -20,7 +19,9 @@ const Products = () => {
           ))}
         </ul>
 
-        {products.length === 0 && <p className="no-products">No products</p>}
+        {products.length === 0 && (
+          <p className="no-products">There are currently no products added</p>
+        )}
       </div>
     </section>
   );

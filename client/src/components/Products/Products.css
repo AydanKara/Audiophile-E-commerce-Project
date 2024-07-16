@@ -7,3 +7,10 @@
     flex-direction: column;
     gap: 16rem
 }
+
+.no-products {
+    font: inherit;
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-align: center;
+}

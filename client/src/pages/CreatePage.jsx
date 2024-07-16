@@ -4,7 +4,7 @@ import useForm from "../hooks/useForm";
 
 const CreatePage = () => {
   const navigate = useNavigate()
-  const {values, onChange, resetForm} = useForm({
+  const {values, onChange, resetForm} = useForm({}, {
     category: "",
     name: "",
     image: "",
@@ -17,7 +17,7 @@ const CreatePage = () => {
     e.preventDefault();
 
     try {
-      await productService.create(values.category, values);
+      await productService.create(values);
       resetForm();
       navigate("/catalog")
     } catch (error) {
@@ -41,7 +41,7 @@ const CreatePage = () => {
           <label htmlFor="category">Category</label>
           <select
             name="category"
-            value={values?.category}
+            value={values.category}
             onChange={onChange}
             id="category"
           >
@@ -57,8 +57,8 @@ const CreatePage = () => {
             type="text"
             name="name"
             id="name"
-            value={values?.name}
             onChange={onChange}
+            value={values.name}
           />
         </p>
         <p>
@@ -67,8 +67,8 @@ const CreatePage = () => {
             type="text"
             name="image"
             id="image"
-            value={values?.image}
             onChange={onChange}
+            value={values.image}
           />
         </p>
         <p>
@@ -77,8 +77,8 @@ const CreatePage = () => {
             type="number"
             name="price"
             id="price"
-            value={values?.price}
             onChange={onChange}
+            value={values.price}
           />
         </p>
         <p>
@@ -86,8 +86,8 @@ const CreatePage = () => {
           <textarea
             name="description"
             id="description"
-            value={values?.description}
             onChange={onChange}
+            value={values.description}
           ></textarea>
         </p>
         <p>
@@ -95,8 +95,8 @@ const CreatePage = () => {
           <textarea
             name="features"
             id="features"
-            value={values?.features}
             onChange={onChange}
+            value={values.features}
           ></textarea>
         </p>
         <button className="btn-1">Create Product</button>
