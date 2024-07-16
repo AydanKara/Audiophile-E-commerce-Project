@@ -7,7 +7,7 @@ import RegisterPage from "./pages/RegisterPage";
 import CreatePage from "./pages/CreatePage";
 import "./styles/base.css";
 import { useState } from "react";
-import AuthContext from "./context/authContext";
+import { AuthProvider } from "./context/authContext";
 import * as authService from "./services/authService";
 import Header from "./components/Layouts/Header/Header";
 import Footer from "./components/Layouts/Footer/Footer";
@@ -50,7 +50,7 @@ function App() {
   };
 
   return (
-    <AuthContext.Provider value={values}>
+    <AuthProvider value={values}>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -65,7 +65,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
       </Routes>
       <Footer />
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 
