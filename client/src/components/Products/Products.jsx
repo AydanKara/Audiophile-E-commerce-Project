@@ -9,7 +9,7 @@ const Products = () => {
   useEffect(() => {
     productService.getAll().then((result) => setProducts(result));
   }, []);
-  products.map((product) => console.log((product.category)))
+  /* products.map((product) => console.log((product.category))) */
   return (
     <section className="container">
       <div className="products-wrapper">
