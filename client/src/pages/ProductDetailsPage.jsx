@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import * as productService from "../services/productService";
 import Categories from "../components/Categories/Categories";
 import ShopInfo from "../components/Layouts/ShopInfo/ShopInfo";
@@ -38,11 +38,9 @@ const ProductDetailsPage = () => {
                       <p className="product-desc">{product.description}</p>
                       <h6>$ {product.price}</h6>
                       <div id="product-action">
-                        <div id="product-quantity">
-                          <span id="minus">-</span>
-                          <span id="quantity">1</span>
-                          <span id="plus">+</span>
-                        </div>
+                        <Link to={`/catalog/${productId}/edit`} className="btn-1">
+                          Edit
+                        </Link>
                         <button className="btn-1">Add to cart</button>
                       </div>
                     </div>

@@ -10,6 +10,7 @@ import { AuthProvider } from "./context/authContext";
 import Header from "./components/Layouts/Header/Header";
 import Footer from "./components/Layouts/Footer/Footer";
 import Logout from "./components/Logout/Logout";
+import EditPage from "./pages/EditPage";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           path="/catalog/:productId/details"
           element={<ProductDetailsPage />}
         />
+        <Route path="/catalog/:productId/edit" element={<EditPage />} />
+
         <Route path="/create" element={<CreatePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />

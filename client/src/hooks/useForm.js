@@ -22,6 +22,7 @@ const useForm = (submitHandler, initialValues) => {
 
   return {
     values,
+    setValues,
     onChange,
     onSubmit,
     resetForm,
