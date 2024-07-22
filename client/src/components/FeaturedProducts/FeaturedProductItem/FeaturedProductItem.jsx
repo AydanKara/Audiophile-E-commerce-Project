@@ -1,15 +1,16 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import "./FeaturedProductItem.css";
 
-const FeaturedProductItem = () => {
+const FeaturedProductItem = ({_id, image, name}) => {
   return (
     <div id="product">
       <div className="media">
-        <img className="product-img" src="/home/image-earphones-yx1.jpg" />
+        <img className="product-img" src={image} />
       </div>
       <div className="product-col">
-        <h4>YX1 EARPHONES</h4>
-        <Link to="/" className="btn-1 btn-alt-3">
+        <h6>{name}</h6>
+        <Link to={`/catalog/${_id}/details`} className="btn-1 btn-alt-3">
           See product
         </Link>
       </div>

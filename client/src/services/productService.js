@@ -7,6 +7,16 @@ export const getAll = async () => {
   return result;
 };
 
+export const featuredProducts = async () => {
+  const query = encodeURIComponent(`offset=0&pageSize=3`);
+
+  const result = await request.get(
+    `${baseUrl}?sortBy=_createdOn%20desc&${query}`
+  );
+
+  return result;
+};
+
 export const getOne = async (productId) => {
   const result = await request.get(`${baseUrl}/${productId}`);
 
@@ -24,4 +34,3 @@ export const edit = async (productId, productData) => {
 
   return result;
 };
-
