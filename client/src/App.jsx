@@ -11,6 +11,7 @@ import Header from "./components/Layouts/Header/Header";
 import Footer from "./components/Layouts/Footer/Footer";
 import Logout from "./components/Logout/Logout";
 import EditPage from "./pages/EditPage";
+import AuthGuard from "./guard/AuthGuard";
 
 function App() {
   return (
@@ -23,12 +24,14 @@ function App() {
           path="/catalog/:productId/details"
           element={<ProductDetailsPage />}
         />
-        <Route path="/catalog/:productId/edit" element={<EditPage />} />
-
-        <Route path="/create" element={<CreatePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/logout" element={<Logout />} />
+
+        <Route element={<AuthGuard />}>
+          <Route path="/create" element={<CreatePage />} />
+          <Route path="/catalog/:productId/edit" element={<EditPage />} />
+          <Route path="/logout" element={<Logout />} />
+        </Route>
       </Routes>
       <Footer />
     </AuthProvider>
