@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import * as productService from "../services/productService";
 import Categories from "../components/Categories/Categories";
 import ShopInfo from "../components/Layouts/ShopInfo/ShopInfo";
 import ProductGallery from "../components/ProductGallery/ProductGallery";
 import ProductOthers from "../components/ProductOthers/ProductOthers";
 import "../styles/product-details.css";
+import AuthContext from "../context/authContext";
 
 const ProductDetailsPage = () => {
+  const navigate = useNavigate();
+  const { userId } = useContext(AuthContext);
+
   const { productId } = useParams();
 
   const [product, setProduct] = useState({});
@@ -16,6 +20,17 @@ const ProductDetailsPage = () => {
     productService.getOne(productId).then(setProduct);
   }, [productId]);
 
+  const deleteButtonClickHandler = async () => {
+    const hasConfirmed = confirm(
+      `Are you sure you want to delete ${product.name}`
+    );
+
+    if (hasConfirmed) {
+      await productService.remove(productId);
+
+      navigate("/catalog");
+    }
+  };
   return (
     <main>
       <section className="container">
@@ -37,12 +52,23 @@ const ProductDetailsPage = () => {
                       <h2>{product.name}</h2>
                       <p className="product-desc">{product.description}</p>
                       <h6>$ {product.price}</h6>
-                      <div id="product-action">
-                        <Link to={`/catalog/${productId}/edit`} className="btn-1">
-                          Edit
-                        </Link>
-                        <button className="btn-1">Add to cart</button>
-                      </div>
+
+                      {userId === product._ownerId && (
+                        <div id="product-action">
+                          <Link
+                            to={`/catalog/${productId}/edit`}
+                            className="btn-1"
+                          >
+                            Edit
+                          </Link>
+                          <button
+                            className="btn-1"
+                            onClick={deleteButtonClickHandler}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </li>
                 </ul>
