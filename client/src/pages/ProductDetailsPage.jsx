@@ -12,7 +12,7 @@ import CommentForm from "../components/CommentForm/CommentForm";
 
 const ProductDetailsPage = () => {
   const navigate = useNavigate();
-  const { userId } = useContext(AuthContext);
+  const { userId, isAuthenticated, username } = useContext(AuthContext);
 
   const { productId } = useParams();
 
@@ -43,9 +43,7 @@ const ProductDetailsPage = () => {
     <main>
       <section className="container">
         <div className="products-wrapper">
-          <button id="go-back" className="btn-back">
-            Go Back
-          </button>
+          <button className="btn-back go-back">Go Back</button>
           <div className="product-list">
             <div className="product-item">
               <article>
@@ -62,7 +60,7 @@ const ProductDetailsPage = () => {
                       <h6>$ {product.price}</h6>
 
                       {userId === product._ownerId && (
-                        <div id="product-action">
+                        <div className="product-action">
                           <Link
                             to={`/catalog/${productId}/edit`}
                             className="btn-1"
@@ -80,19 +78,25 @@ const ProductDetailsPage = () => {
                     </div>
                   </li>
                 </ul>
-                <ul id="product-details">
-                  <li id="features">
+                <ul className="product-details">
+                  <li className="features">
                     <h3>Features</h3>
                     <p>{product.features}</p>
                   </li>
-                  <li id="in-the-box">
+                  <li className="comment-write">
                     <h3>write a comment:</h3>
-                    <CommentForm addComment={addComment} />  
+                    {isAuthenticated ? (
+                      <CommentForm addComment={addComment} />
+                    ) : (
+                      <p className="not-logged">
+                        You must be logged in to be able to write a comment.
+                      </p>
+                    )}
                   </li>
                 </ul>
               </article>
               <h5>Comments:</h5>
-              <CommentList comments={comments} />
+              <CommentList comments={comments} username={username} />
             </div>
           </div>
         </div>
