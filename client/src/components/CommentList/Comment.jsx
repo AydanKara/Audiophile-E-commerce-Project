@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 
-const Comment = ({ text }) => {
+const Comment = ({ text, username }) => {
   return (
-    <div className="comment">
-      <p>{text}</p>
-    </div>
+    <ul className="comment">
+      <li className="comment-item">
+        <strong className="comment-username">{username} says: </strong>
+        <p>{text}</p>
+      </li>
+    </ul>
   );
 };
 

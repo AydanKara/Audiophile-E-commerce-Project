@@ -1487,15 +1487,7 @@
         _createdOn: 1613551388703,
       },
     },
-    comments: {
-      "0a272c58-b7ea-4e09-a000-7ec988248f66": {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-        content: "Great recipe!",
-        recipeId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
-        _createdOn: 1614260681375,
-        _id: "0a272c58-b7ea-4e09-a000-7ec988248f66",
-      },
-    },
+    comments: {},
     products: {
       "0a31020f-f30a-47f2-8690-4d6bd2e5f182": {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",

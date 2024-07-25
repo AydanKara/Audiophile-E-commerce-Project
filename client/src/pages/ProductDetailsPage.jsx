@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import * as productService from "../services/productService";
+import * as commentService from "../services/commentService";
 import Categories from "../components/Categories/Categories";
 import ShopInfo from "../components/Layouts/ShopInfo/ShopInfo";
 import ProductGallery from "../components/ProductGallery/ProductGallery";
@@ -17,10 +18,25 @@ const ProductDetailsPage = () => {
   const { productId } = useParams();
 
   const [product, setProduct] = useState({});
+  const [comments, setComments] = useState([]);
+
 
   useEffect(() => {
     productService.getOne(productId).then(setProduct);
+    commentService.getProductsComments(productId).then(setComments);
   }, [productId]);
+
+  const addCommentHandler = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const newComment = await commentService.create(
+      productId,
+      username,
+      formData.get("comment")
+    );
+
+    setComments((state) => [...state, newComment]);
+  };
 
   const deleteButtonClickHandler = async () => {
     const hasConfirmed = confirm(
@@ -34,11 +50,6 @@ const ProductDetailsPage = () => {
     }
   };
 
-  const [comments, setComments] = useState([]);
-
-  const addComment = (comment) => {
-    setComments([...comments, comment]);
-  };
   return (
     <main>
       <section className="container">
@@ -86,7 +97,7 @@ const ProductDetailsPage = () => {
                   <li className="comment-write">
                     <h3>write a comment:</h3>
                     {isAuthenticated ? (
-                      <CommentForm addComment={addComment} />
+                      <CommentForm addComment={addCommentHandler} />
                     ) : (
                       <p className="not-logged">
                         You must be logged in to be able to write a comment.
@@ -96,7 +107,7 @@ const ProductDetailsPage = () => {
                 </ul>
               </article>
               <h5>Comments:</h5>
-              <CommentList comments={comments} username={username} />
+              <CommentList comments={comments}/>
             </div>
           </div>
         </div>

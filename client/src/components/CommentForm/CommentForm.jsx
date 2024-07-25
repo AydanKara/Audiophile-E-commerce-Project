@@ -1,25 +1,18 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import "./CommentForm.css"
+import "./CommentForm.css";
 
 const CommentForm = ({ addComment }) => {
-  const [comment, setComment] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addComment(comment);
-    setComment('');
-  };
-
   return (
-    <form className='comment-form' onSubmit={handleSubmit}>
+    <form className="comment-form" onSubmit={addComment}>
       <textarea
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
+        name="comment"
         placeholder="Add your comment"
         required
+        defaultValue={""}
       />
-      <button type="submit" className='btn-1'>Add comment</button>
+      <button type="submit" className="btn-1">
+        Add comment
+      </button>
     </form>
   );
 };

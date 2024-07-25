@@ -20,6 +20,16 @@
     border-bottom: 1px solid #ddd;
 }
 
+.comment-username {
+    font-size: 1.6rem;
+}
+
+.comment-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .comment p {
     margin: 0;
 }
