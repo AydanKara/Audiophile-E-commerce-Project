@@ -90,15 +90,17 @@
 
 #product-details {
     display: flex;
-    gap: 12.5rem;
-    margin-top: 16rem;
+    justify-content: space-between;
+    gap: 3.5rem;
+    margin: 16rem 0 5rem 0;
 }
 
-#product-details #features {
+#product-details #features,
+#product-details #in-the-box {
+    flex-basis: 50%;
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
-    width: 63.5rem;
 }
 
 #product-details .features p {
@@ -106,28 +108,5 @@
     opacity: .5;
 }
 
-#product-details #in-the-box {
-    display: flex;
-    flex-direction: column;
-    gap: 3.2rem;
-}
-
-#product-details #in-the-box #product-includes {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-}
-
-#product-details #in-the-box #product-includes .include-item {
-    display: flex;
-    gap: 2.4rem;
-}
-
-.include-item span {
-    color: #D87D4A;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 25px;
-}
 
 

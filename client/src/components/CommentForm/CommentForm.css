@@ -1,0 +1,25 @@
+.comment-form {
+    margin: 0;
+    padding: 3rem;
+}
+
+.comment-form textarea {
+    font-size: 1.5rem;
+}
+
+.comment-list {
+    margin-top: 20px;
+}
+
+.comment-list .no-comment {
+    font-weight: 700;
+}
+
+.comment {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.comment p {
+    margin: 0;
+}

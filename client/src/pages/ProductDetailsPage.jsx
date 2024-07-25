@@ -7,6 +7,8 @@ import ProductGallery from "../components/ProductGallery/ProductGallery";
 import ProductOthers from "../components/ProductOthers/ProductOthers";
 import "../styles/product-details.css";
 import AuthContext from "../context/authContext";
+import CommentList from "../components/CommentList/CommentList";
+import CommentForm from "../components/CommentForm/CommentForm";
 
 const ProductDetailsPage = () => {
   const navigate = useNavigate();
@@ -30,6 +32,12 @@ const ProductDetailsPage = () => {
 
       navigate("/catalog");
     }
+  };
+
+  const [comments, setComments] = useState([]);
+
+  const addComment = (comment) => {
+    setComments([...comments, comment]);
   };
   return (
     <main>
@@ -78,26 +86,13 @@ const ProductDetailsPage = () => {
                     <p>{product.features}</p>
                   </li>
                   <li id="in-the-box">
-                    <h3>In The Box</h3>
-                    <ul id="product-includes">
-                      {/* <% for (const include of product.includes) { %> */}
-                      <li className="include-item">
-                        <span>1x</span>
-                        <p>Headphone unit</p>
-                      </li>
-                      <li className="include-item">
-                        <span>1x</span>
-                        <p>Headphone unit</p>
-                      </li>
-                      <li className="include-item">
-                        <span>1x</span>
-                        <p>Headphone unit</p>
-                      </li>
-                      {/* <% } %> */}
-                    </ul>
+                    <h3>write a comment:</h3>
+                    <CommentForm addComment={addComment} />  
                   </li>
                 </ul>
               </article>
+              <h5>Comments:</h5>
+              <CommentList comments={comments} />
             </div>
           </div>
         </div>
