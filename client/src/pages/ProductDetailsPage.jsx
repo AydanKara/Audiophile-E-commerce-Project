@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import * as productService from "../services/productService";
 import * as commentService from "../services/commentService";
@@ -10,6 +10,8 @@ import "../styles/product-details.css";
 import AuthContext from "../context/authContext";
 import CommentList from "../components/CommentList/CommentList";
 import CommentForm from "../components/CommentForm/CommentForm";
+import reducer from "../reducers/commentReducer";
+import useForm from "../hooks/useForm";
 
 const ProductDetailsPage = () => {
   const navigate = useNavigate();
@@ -18,25 +20,36 @@ const ProductDetailsPage = () => {
   const { productId } = useParams();
 
   const [product, setProduct] = useState({});
-  const [comments, setComments] = useState([]);
-
+  const [comments, dispatch] = useReducer(reducer, []);
 
   useEffect(() => {
     productService.getOne(productId).then(setProduct);
-    commentService.getProductsComments(productId).then(setComments);
+    commentService.getProductsComments(productId).then((result) => {
+      dispatch({
+        type: "GET_ALL_COMMENTS",
+        payload: result,
+      });
+    });
   }, [productId]);
 
-  const addCommentHandler = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+  const addCommentHandler = async (values) => {
     const newComment = await commentService.create(
       productId,
       username,
-      formData.get("comment")
+      values.comment
     );
 
-    setComments((state) => [...state, newComment]);
+    dispatch({
+      type: "ADD_COMMENT",
+      payload: newComment,
+    });
+
+    resetForm();
   };
+
+  const { values, onChange, onSubmit, resetForm } = useForm(addCommentHandler, {
+    comment: "",
+  });
 
   const deleteButtonClickHandler = async () => {
     const hasConfirmed = confirm(
@@ -61,7 +74,7 @@ const ProductDetailsPage = () => {
                 <ul className="product-wrapper">
                   <li className="col-1">
                     <div className="product-image">
-                      <img src={product.image} alt="" />
+                      <img src={product.image} alt={product.name} />
                     </div>
                   </li>
                   <li className="col-2">
@@ -97,7 +110,11 @@ const ProductDetailsPage = () => {
                   <li className="comment-write">
                     <h3>write a comment:</h3>
                     {isAuthenticated ? (
-                      <CommentForm addComment={addCommentHandler} />
+                      <CommentForm
+                        onSubmit={onSubmit}
+                        onChange={onChange}
+                        values={values}
+                      />
                     ) : (
                       <p className="not-logged">
                         You must be logged in to be able to write a comment.
@@ -107,7 +124,7 @@ const ProductDetailsPage = () => {
                 </ul>
               </article>
               <h5>Comments:</h5>
-              <CommentList comments={comments}/>
+              <CommentList comments={comments} />
             </div>
           </div>
         </div>

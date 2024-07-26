@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import "./CommentForm.css";
 
-const CommentForm = ({ addComment }) => {
+const CommentForm = ({ onSubmit, onChange, values }) => {
   return (
-    <form className="comment-form" onSubmit={addComment}>
+    <form className="comment-form" onSubmit={onSubmit}>
       <textarea
         name="comment"
         placeholder="Add your comment"
         required
-        defaultValue={""}
+        onChange={onChange}
+        value={values.comment}
       />
       <button type="submit" className="btn-1">
         Add comment
