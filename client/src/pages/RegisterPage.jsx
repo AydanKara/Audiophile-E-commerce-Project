@@ -10,6 +10,7 @@ const RegisterPage = () => {
 
   const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
     email: "",
+    username: "",
     password: "",
     repass: "",
   });
@@ -36,6 +37,16 @@ const RegisterPage = () => {
             id="email"
             onChange={onChange}
             value={values?.email}
+          />
+        </p>
+        <p>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            onChange={onChange}
+            value={values?.username}
           />
         </p>
         <p>
