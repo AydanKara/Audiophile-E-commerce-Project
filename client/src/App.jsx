@@ -12,29 +12,35 @@ import Footer from "./components/Layouts/Footer/Footer";
 import Logout from "./components/Logout/Logout";
 import EditPage from "./pages/EditPage";
 import AuthGuard from "./guard/AuthGuard";
+import ErrorPage from "./pages/ErrorPage";
+import ErrorBoundary from "./components/Error/ErrorBoundary";
 
 function App() {
   return (
-    <AuthProvider>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route
-          path="/catalog/:productId/details"
-          element={<ProductDetailsPage />}
-        />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+    <ErrorBoundary>
+      <AuthProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route
+            path="/catalog/:productId/details"
+            element={<ProductDetailsPage />}
+          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
-        <Route element={<AuthGuard />}>
-          <Route path="/create" element={<CreatePage />} />
-          <Route path="/catalog/:productId/edit" element={<EditPage />} />
-          <Route path="/logout" element={<Logout />} />
-        </Route>
-      </Routes>
-      <Footer />
-    </AuthProvider>
+          <Route element={<AuthGuard />}>
+            <Route path="/create" element={<CreatePage />} />
+            <Route path="/catalog/:productId/edit" element={<EditPage />} />
+            <Route path="/logout" element={<Logout />} />
+          </Route>
+
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }
 
