@@ -1487,6 +1487,26 @@
         _createdOn: 1613551388703,
       },
     },
+    categories: {
+      "category_1": {
+        title: "Headphones",
+        image:
+          "https://res.cloudinary.com/dmn33nzbp/image/upload/v1722108417/image-category-thumbnail-headphones_ejw7dh.png",
+        _id: "category_1",
+      },
+      "category_2": {
+        title: "Speakers",
+        image:
+          "https://res.cloudinary.com/dmn33nzbp/image/upload/v1722108417/image-category-thumbnail-speakers_ct1e2o.png",
+        _id: "category_2",
+      },
+      "category_3": {
+        title: "Earphones",
+        image:
+          "https://res.cloudinary.com/dmn33nzbp/image/upload/v1722108417/image-category-thumbnail-earphones_kcvmln.png",
+        _id: "category_3",
+      },
+    },
     comments: {},
     products: {
       "0a31020f-f30a-47f2-8690-4d6bd2e5f182": {

@@ -14,6 +14,7 @@ import EditPage from "./pages/EditPage";
 import AuthGuard from "./guard/AuthGuard";
 import ErrorPage from "./pages/ErrorPage";
 import ErrorBoundary from "./components/Error/ErrorBoundary";
+import CatalogCategoryPage from "./pages/CatalogCategoryPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:categoryTitle" element={<CatalogCategoryPage />} />
           <Route
             path="/catalog/:productId/details"
             element={<ProductDetailsPage />}
