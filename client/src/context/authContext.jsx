@@ -9,25 +9,35 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [auth, setAuth] = usePersistedState("auth", {});
-
-  const loginSubmitHandler = async (values) => {
+  const loginSubmitHandler = async (values, setServerError) => {
+    
     const result = await authService.login(values.email, values.password);
-
-    setAuth(result);
-    localStorage.setItem("accessToken", result.accessToken);
-    navigate("/");
+    
+    if (result) {
+      setAuth(result);
+      localStorage.setItem("accessToken", result.accessToken);
+      navigate("/");
+    } else {
+      setServerError("Invalid email or password");
+    }
   };
 
-  const registerSubmitHandler = async (values) => {
+  const registerSubmitHandler = async (values, setServerError) => {
     const result = await authService.register(
       values.email,
       values.username,
       values.password
     );
 
-    setAuth(result);
-    localStorage.setItem("accessToken", result.accessToken);
-    navigate("/");
+    if (result) {
+      setAuth(result);
+      localStorage.setItem("accessToken", result.accessToken);
+      navigate("/");
+    } else if (result.status === 409) {
+      setServerError(`User with ${values.email} already registered`)
+    } else {
+      setServerError("Something went wrong")
+    }
   };
 
   const logoutHandler = () => {

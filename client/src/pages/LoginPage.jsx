@@ -7,42 +7,58 @@ import AuthContext from "../context/authContext";
 
 const LoginPage = () => {
   const { loginSubmitHandler } = useContext(AuthContext);
-  const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
-    email: "",
-    password: "",
-  });
+  const { values, errors, serverError, onChange, onSubmit } = useForm(
+    loginSubmitHandler,
+    {
+      email: "",
+      password: "",
+    }
+  );
   return (
     <>
       <div className="site-heading">
         <h1 className="heading-title">Login</h1>
       </div>
-      {/*   if (inputData.errorMessage) { 
-  <div class="alert">
-    <h2>Invalid Credentials</h2>
-    <p>
- inputData.errorMessage
-    </p>
-  </div>
-   }  */}
+      {serverError && (
+        <div className="alert">
+          <h2>{serverError}</h2>
+        </div>
+      )}
       <form onSubmit={onSubmit}>
         <p>
           <label htmlFor="email">E-Mail</label>
+          {errors.email && <span className="error">{errors.email}</span>}
           <input
             type="email"
             name="email"
             id="email"
             onChange={onChange}
             value={values?.email}
+            className={
+              errors.email
+                ? "error-input"
+                : "" || serverError
+                ? "error-input"
+                : ""
+            }
           />
         </p>
         <p>
           <label htmlFor="password">Password</label>
+          {errors.password && <span className="error">{errors.password}</span>}
           <input
             type="password"
             name="password"
             id="password"
             onChange={onChange}
             value={values?.password}
+            className={
+              errors.password
+                ? "error-input"
+                : "" || serverError
+                ? "error-input"
+                : ""
+            }
           />
         </p>
         <button type="submit" className="btn-1">

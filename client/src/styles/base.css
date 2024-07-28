@@ -212,6 +212,7 @@ button {
 }
 
 .alert h2 {
+    font-size: 2rem;
     color: var(--color-form-error);
 }
 

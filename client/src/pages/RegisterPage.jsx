@@ -8,7 +8,7 @@ import useForm from "../hooks/useForm";
 const RegisterPage = () => {
   const { registerSubmitHandler } = useContext(AuthContext);
 
-  const { values, errors, onChange, onSubmit } = useForm(
+  const { values, errors, serverError, onChange, onSubmit } = useForm(
     registerSubmitHandler,
     {
       email: "",
@@ -23,6 +23,11 @@ const RegisterPage = () => {
       <div className="site-heading">
         <h1 className="heading-title">Create new Account</h1>
       </div>
+      {serverError && (
+        <div className="alert">
+          <h2>{serverError}</h2>
+        </div>
+      )}
       <form onSubmit={onSubmit}>
         <p className="input-box">
           <label htmlFor="email">E-Mail</label>

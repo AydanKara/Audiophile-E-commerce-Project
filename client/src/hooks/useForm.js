@@ -3,6 +3,7 @@ import { useState } from "react";
 const useForm = (submitHandler, initialValues) => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState("");
 
   const validate = (values) => {
     let errors = {};
@@ -13,7 +14,7 @@ const useForm = (submitHandler, initialValues) => {
       errors.email = "Email address is invalid";
     }
 
-    if (!values.username) {
+    if (values.username !== undefined && !values.username) {
       errors.username = "Username is required";
     }
 
@@ -23,9 +24,12 @@ const useForm = (submitHandler, initialValues) => {
       errors.password = "Password must be at least 6 characters";
     }
 
-    if (!values.repass) {
+    if (values.repass !== undefined && !values.repass) {
       errors.repass = "Please confirm your password";
-    } else if (values.repass !== values.password) {
+    } else if (
+      values.repass !== undefined &&
+      values.repass !== values.password
+    ) {
       errors.repass = "Passwords do not match";
     }
 
@@ -37,14 +41,24 @@ const useForm = (submitHandler, initialValues) => {
       ...state,
       [e.target.name]: e.target.value,
     }));
+    setErrors({
+      ...errors,
+      [e.target.name]: "",
+    });
+    setServerError("");
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     const validationErrors = validate(values);
     if (Object.keys(validationErrors).length === 0) {
-      submitHandler(values);
+      try {
+        await submitHandler(values, setServerError);
+      } catch (error) {
+        console.log(error)
+        setServerError(error.message);
+      }
     } else {
       setErrors(validationErrors);
     }
@@ -57,6 +71,7 @@ const useForm = (submitHandler, initialValues) => {
   return {
     values,
     errors,
+    serverError,
     setValues,
     onChange,
     onSubmit,
