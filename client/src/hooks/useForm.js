@@ -2,6 +2,35 @@ import { useState } from "react";
 
 const useForm = (submitHandler, initialValues) => {
   const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState({});
+
+  const validate = (values) => {
+    let errors = {};
+
+    if (!values.email) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+      errors.email = "Email address is invalid";
+    }
+
+    if (!values.username) {
+      errors.username = "Username is required";
+    }
+
+    if (!values.password) {
+      errors.password = "Password is required";
+    } else if (values.password.length < 6) {
+      errors.password = "Password must be at least 6 characters";
+    }
+
+    if (!values.repass) {
+      errors.repass = "Please confirm your password";
+    } else if (values.repass !== values.password) {
+      errors.repass = "Passwords do not match";
+    }
+
+    return errors;
+  };
 
   const onChange = (e) => {
     setValues((state) => ({
@@ -13,7 +42,12 @@ const useForm = (submitHandler, initialValues) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    submitHandler(values);
+    const validationErrors = validate(values);
+    if (Object.keys(validationErrors).length === 0) {
+      submitHandler(values);
+    } else {
+      setErrors(validationErrors);
+    }
   };
 
   const resetForm = () => {
@@ -22,6 +56,7 @@ const useForm = (submitHandler, initialValues) => {
 
   return {
     values,
+    errors,
     setValues,
     onChange,
     onSubmit,

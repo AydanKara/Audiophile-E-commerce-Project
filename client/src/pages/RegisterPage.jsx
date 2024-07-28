@@ -8,85 +8,73 @@ import useForm from "../hooks/useForm";
 const RegisterPage = () => {
   const { registerSubmitHandler } = useContext(AuthContext);
 
-  const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
-    email: "",
-    username: "",
-    password: "",
-    repass: "",
-  });
+  const { values, errors, onChange, onSubmit } = useForm(
+    registerSubmitHandler,
+    {
+      email: "",
+      username: "",
+      password: "",
+      repass: "",
+    }
+  );
 
   return (
     <>
       <div className="site-heading">
         <h1 className="heading-title">Create new Account</h1>
       </div>
-      {/*   if (inputData.errorMessage) { 
-  <div class="alert">
-    <h2>Invalid Credentials</h2>
-    <p>
- inputData.errorMessage
-    </p>
-  </div>
-   }  */}
       <form onSubmit={onSubmit}>
-        <p>
+        <p className="input-box">
           <label htmlFor="email">E-Mail</label>
+          {errors.email && <span className="error">{errors.email}</span>}
           <input
             type="email"
             name="email"
             id="email"
             onChange={onChange}
             value={values?.email}
+            className={errors.email ? "error-input" : ""}
           />
         </p>
-        <p>
+        <p className="input-box">
           <label htmlFor="username">Username</label>
+          {errors.username && <span className="error">{errors.username}</span>}
+
           <input
             type="text"
             name="username"
             id="username"
             onChange={onChange}
             value={values?.username}
+            className={errors.username ? "error-input" : ""}
           />
         </p>
-        <p>
+        <p className="input-box">
           <label htmlFor="password">Password</label>
+          {errors.password && <span className="error">{errors.password}</span>}
+
           <input
             type="password"
             name="password"
             id="password"
             onChange={onChange}
             value={values?.password}
+            className={errors.password ? "error-input" : ""}
           />
         </p>
-        <p>
+        <p className="input-box">
           <label htmlFor="repass">Confirm Password</label>
+          {errors.repass && <span className="error">{errors.repass}</span>}
+
           <input
             type="password"
             name="repass"
             id="repass"
             onChange={onChange}
             value={values?.repass}
+            className={errors.repass ? "error-input" : ""}
           />
         </p>
-
-        {/*  <hr />
-        <p>
-          <label htmlFor="fullname">Full Name</label>
-          <input type="text" name="fullname" id="fullname" defaultValue="" />
-        </p>
-        <p>
-          <label htmlFor="street">Street</label>
-          <input type="text" name="street" id="street" defaultValue="" />
-        </p>
-        <p>
-          <label htmlFor="postal">Postal Code</label>
-          <input type="text" name="postal" id="postal" defaultValue="" />
-        </p>
-        <p>
-          <label htmlFor="city">City</label>
-          <input type="text" name="city" id="city" defaultValue="" />
-        </p> */}
         <button type="submit" className="btn-1">
           Create Account
         </button>
