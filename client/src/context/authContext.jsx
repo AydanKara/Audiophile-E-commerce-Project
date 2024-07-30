@@ -10,9 +10,8 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [auth, setAuth] = usePersistedState("auth", {});
   const loginSubmitHandler = async (values, setServerError) => {
-    
     const result = await authService.login(values.email, values.password);
-    
+
     if (result) {
       setAuth(result);
       localStorage.setItem("accessToken", result.accessToken);
@@ -34,9 +33,9 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("accessToken", result.accessToken);
       navigate("/");
     } else if (result.status === 409) {
-      setServerError(`User with ${values.email} already registered`)
+      setServerError(`User with ${values.email} already registered`);
     } else {
-      setServerError("Something went wrong")
+      setServerError("Something went wrong");
     }
   };
 

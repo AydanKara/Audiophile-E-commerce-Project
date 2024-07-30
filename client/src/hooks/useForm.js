@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useForm = (submitHandler, initialValues) => {
+const useForm = (submitHandler, initialValues = {}) => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [serverError, setServerError] = useState("");
@@ -56,7 +56,7 @@ const useForm = (submitHandler, initialValues) => {
       try {
         await submitHandler(values, setServerError);
       } catch (error) {
-        console.log(error)
+        console.log(error);
         setServerError(error.message);
       }
     } else {
@@ -72,6 +72,8 @@ const useForm = (submitHandler, initialValues) => {
     values,
     errors,
     serverError,
+    setErrors,
+    setServerError,
     setValues,
     onChange,
     onSubmit,
