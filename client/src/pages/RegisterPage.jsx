@@ -3,19 +3,12 @@ import "../styles/auth.css";
 import "../styles/form.css";
 import { useContext } from "react";
 import AuthContext from "../context/authContext";
-import useForm from "../hooks/useForm";
+import useRegisterForm from "../hooks/useRegisterForm";
 
 const RegisterPage = () => {
   const { registerSubmitHandler } = useContext(AuthContext);
-
-  const { values, errors, serverError, onChange, onSubmit } = useForm(
-    registerSubmitHandler,
-    {
-      email: "",
-      username: "",
-      password: "",
-      repass: "",
-    }
+  const { values, errors, serverError, onChange, onSubmit } = useRegisterForm(
+    registerSubmitHandler
   );
 
   return (
