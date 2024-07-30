@@ -11,7 +11,7 @@ import AuthContext from "../context/authContext";
 import CommentList from "../components/CommentList/CommentList";
 import CommentForm from "../components/CommentForm/CommentForm";
 import reducer from "../reducers/commentReducer";
-import useForm from "../hooks/useForm";
+import useCommentForm from "../hooks/useCommentForm";
 
 const ProductDetailsPage = () => {
   const navigate = useNavigate();
@@ -24,32 +24,38 @@ const ProductDetailsPage = () => {
 
   useEffect(() => {
     productService.getOne(productId).then(setProduct);
-    commentService.getProductsComments(productId).then((result) => {
-      dispatch({
-        type: "GET_ALL_COMMENTS",
-        payload: result,
+
+    try {
+      commentService.getProductsComments(productId).then((result) => {
+        dispatch({
+          type: "GET_ALL_COMMENTS",
+          payload: result,
+        });
       });
-    });
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }, [productId]);
 
   const addCommentHandler = async (values) => {
-    const newComment = await commentService.create(
-      productId,
-      username,
-      values.comment
-    );
+    try {
+      const newComment = await commentService.create(
+        productId,
+        username,
+        values.comment
+      );
 
-    dispatch({
-      type: "ADD_COMMENT",
-      payload: newComment,
-    });
-
-    resetForm();
+      dispatch({
+        type: "ADD_COMMENT",
+        payload: newComment,
+      });
+    } catch (error) {
+      throw new Error("Error creating comment: " + error.message);
+    }
   };
 
-  const { values, onChange, onSubmit, resetForm } = useForm(addCommentHandler, {
-    comment: "",
-  });
+  const { values, errors, serverError, onChange, onSubmit } =
+    useCommentForm(addCommentHandler);
 
   const deleteButtonClickHandler = async () => {
     const hasConfirmed = confirm(
@@ -114,6 +120,7 @@ const ProductDetailsPage = () => {
                         onSubmit={onSubmit}
                         onChange={onChange}
                         values={values}
+                        errors={errors}
                       />
                     ) : (
                       <p className="not-logged">
@@ -122,6 +129,12 @@ const ProductDetailsPage = () => {
                     )}
                   </li>
                 </ul>
+                {serverError && (
+                  <div className="alert">
+                    <h2>Error</h2>
+                    <p>{serverError}</p>
+                  </div>
+                )}
               </article>
               <h5>Comments:</h5>
               <CommentList comments={comments} />

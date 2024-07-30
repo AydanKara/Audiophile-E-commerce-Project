@@ -38,6 +38,7 @@ textarea {
     padding: 1.8rem 0 1.8rem 2.4rem;
     height: 12rem;
     margin-bottom: 2.4rem;
+    margin-top: 1rem;
     border: 1px solid #CFCFCF;
     border-radius: var(--border-radius-8);
 }
