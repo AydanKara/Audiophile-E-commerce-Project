@@ -3,6 +3,7 @@ import useForm from "./useForm";
 const useCreateForm = (callback) => {
   const {
     values,
+    setValues,
     errors,
     serverError,
     setErrors,
@@ -65,6 +66,7 @@ const useCreateForm = (callback) => {
 
   return {
     values,
+    setValues,
     errors,
     serverError,
     onChange,

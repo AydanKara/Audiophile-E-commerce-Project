@@ -1,64 +1,45 @@
 import { useNavigate, useParams } from "react-router-dom";
 import * as productService from "../services/productService";
-import useForm from "../hooks/useForm";
-import { useEffect } from "react";
+import useEditForm from "../hooks/useEditForm";
 
 const EditPage = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
-  const { values, setValues, onChange } = useForm(
-    {},
-    {
-      category: "",
-      name: "",
-      image: "",
-      price: "",
-      description: "",
-      features: "",
+  const { values, errors, serverError, onChange, onSubmit } = useEditForm(
+    productId,
+    async (productData) => {
+      try {
+        await productService.edit(productId, productData);
+        navigate("/catalog");
+      } catch (error) {
+        console.error("Error editing product:", error);
+        throw new Error(
+          error.message || "An error occurred while editing the product"
+        );
+      }
     }
   );
-
-  useEffect(() => {
-    try {
-      productService.getOne(productId).then((result) => {
-        setValues(result);
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, [productId, setValues]);
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      await productService.edit(productId, values);
-
-      navigate("/catalog");
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
 
   return (
     <>
       <div className="site-heading">
         <h1 className="heading-title">Edit Product</h1>
       </div>
-      {/*   if (inputData.errorMessage) { 
-                <div class="alert">
-                  <h2>Invalid Credentials</h2>
-                  <p>inputData.errorMessage</p>
-                </div>
-              }  */}
+      {serverError && (
+        <div className="alert">
+          <h2>{serverError}</h2>
+        </div>
+      )}
       <form onSubmit={onSubmit}>
         <p>
           <label htmlFor="category">Category</label>
+          {errors.category && <span className="error">{errors.category}</span>}
           <select
             name="category"
             value={values.category}
             onChange={onChange}
             id="category"
+            className={errors.category ? "error-input" : ""}
           >
             <option value="">Please select category</option>
             <option value="Headphones">Headphones</option>
@@ -68,53 +49,65 @@ const EditPage = () => {
         </p>
         <p>
           <label htmlFor="name">Title</label>
+          {errors.name && <span className="error">{errors.name}</span>}
           <input
             type="text"
             name="name"
             id="name"
             onChange={onChange}
             value={values.name}
+            className={errors.name ? "error-input" : ""}
           />
         </p>
         <p>
           <label htmlFor="image">Image</label>
+          {errors.image && <span className="error">{errors.image}</span>}
           <input
             type="text"
             name="image"
             id="image"
             onChange={onChange}
             value={values.image}
+            className={errors.image ? "error-input" : ""}
           />
         </p>
         <p>
           <label htmlFor="price">Price</label>
+          {errors.price && <span className="error">{errors.price}</span>}
           <input
             type="number"
             name="price"
             id="price"
             onChange={onChange}
             value={values.price}
+            className={errors.price ? "error-input" : ""}
           />
         </p>
         <p>
           <label htmlFor="description">Description</label>
+          {errors.description && (
+            <span className="error">{errors.description}</span>
+          )}
           <textarea
             name="description"
             id="description"
             onChange={onChange}
             value={values.description}
+            className={errors.description ? "error-input" : ""}
           ></textarea>
         </p>
         <p>
           <label htmlFor="features">Features</label>
+          {errors.features && <span className="error">{errors.features}</span>}
           <textarea
             name="features"
             id="features"
             onChange={onChange}
             value={values.features}
+            className={errors.features ? "error-input" : ""}
           ></textarea>
         </p>
-        <button className="btn-1">Edit Product</button>
+        <button className="btn-1">Create Product</button>
       </form>
     </>
   );

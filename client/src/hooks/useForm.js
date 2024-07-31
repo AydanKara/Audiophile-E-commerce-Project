@@ -25,6 +25,7 @@ const useForm = (initialValues = {}) => {
 
   return {
     values,
+    setValues,
     errors,
     serverError,
     setErrors,
