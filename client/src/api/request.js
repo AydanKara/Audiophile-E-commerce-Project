@@ -32,7 +32,7 @@ export const request = async (method, url, data) => {
   const result = await response.json();
 
   if (!response.ok) {
-    throw result;
+    throw new Error("Error:" + response.status);
   }
 
   return result;

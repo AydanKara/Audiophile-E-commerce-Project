@@ -1488,19 +1488,19 @@
       },
     },
     categories: {
-      "category_1": {
+      category_1: {
         title: "Headphones",
         image:
           "https://res.cloudinary.com/dmn33nzbp/image/upload/v1722108417/image-category-thumbnail-headphones_ejw7dh.png",
         _id: "category_1",
       },
-      "category_2": {
+      category_2: {
         title: "Speakers",
         image:
           "https://res.cloudinary.com/dmn33nzbp/image/upload/v1722108417/image-category-thumbnail-speakers_ct1e2o.png",
         _id: "category_2",
       },
-      "category_3": {
+      category_3: {
         title: "Earphones",
         image:
           "https://res.cloudinary.com/dmn33nzbp/image/upload/v1722108417/image-category-thumbnail-earphones_kcvmln.png",
@@ -1536,6 +1536,7 @@
           "Experience unrivalled stereo sound thanks to innovative acoustic technology. With improved ergonomics designed for full day wearing, these revolutionary earphones have been finely crafted to provide you with the perfect fit, delivering complete comfort all day long while enjoying exceptional noise isolation and truly immersive sound. The YX1 Wireless Earphones features customizable controls for volume, music, calls, and voice assistants built into both earbuds. The new 7-hour battery life can be extended up to 28 hours with the charging case, giving you uninterrupted play time. Exquisite craftsmanship with a splash resistant design now available in an all new white and grey color scheme as well as the popular classic black.",
         _createdOn: 1721664492417,
         _id: "bd644e5c-251e-4f5d-ab9b-6dec168ccfdc",
+        like: "",
       },
       "2778dcc9-3386-425f-be4c-fcf3cd03736d": {
         _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
@@ -1552,6 +1553,7 @@
         _id: "2778dcc9-3386-425f-be4c-fcf3cd03736d",
       },
     },
+    likes: {},
   };
   var rules$1 = {
     users: {

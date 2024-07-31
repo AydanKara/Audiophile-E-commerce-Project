@@ -12,6 +12,7 @@ import CommentList from "../components/CommentList/CommentList";
 import CommentForm from "../components/CommentForm/CommentForm";
 import reducer from "../reducers/commentReducer";
 import useCommentForm from "../hooks/useCommentForm";
+import LikeButton from "../components/LikeButton/LikeButton";
 
 const ProductDetailsPage = () => {
   const navigate = useNavigate();
@@ -23,8 +24,9 @@ const ProductDetailsPage = () => {
   const [comments, dispatch] = useReducer(reducer, []);
 
   useEffect(() => {
-    productService.getOne(productId).then(setProduct);
-
+    productService.getOne(productId).then((result) => {
+      setProduct(result);
+    });
     try {
       commentService.getProductsComments(productId).then((result) => {
         dispatch({
@@ -35,7 +37,7 @@ const ProductDetailsPage = () => {
     } catch (error) {
       throw new Error(error.message);
     }
-  }, [productId]);
+  }, [productId, userId]);
 
   const addCommentHandler = async (values) => {
     try {
@@ -103,6 +105,15 @@ const ProductDetailsPage = () => {
                           >
                             Delete
                           </button>
+                        </div>
+                      )}
+
+                      {isAuthenticated && userId !== product._ownerId && (
+                        <div className="product-action">
+                          <LikeButton
+                            productId={productId}
+                            productOwnerId={product._ownerId}
+                          />
                         </div>
                       )}
                     </div>
