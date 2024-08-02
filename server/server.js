@@ -1553,6 +1553,7 @@
         _id: "2778dcc9-3386-425f-be4c-fcf3cd03736d",
       },
     },
+    cart: {},
     likes: {},
   };
   var rules$1 = {

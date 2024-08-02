@@ -13,6 +13,7 @@ import CommentForm from "../components/CommentForm/CommentForm";
 import reducer from "../reducers/commentReducer";
 import useCommentForm from "../hooks/useCommentForm";
 import LikeButton from "../components/LikeButton/LikeButton";
+import AddToCartButton from "../components/AddToCartButton/AddToCartButton";
 
 const ProductDetailsPage = () => {
   const navigate = useNavigate();
@@ -111,6 +112,10 @@ const ProductDetailsPage = () => {
                       {isAuthenticated && userId !== product._ownerId && (
                         <div className="product-action">
                           <LikeButton
+                            productId={productId}
+                            productOwnerId={product._ownerId}
+                          />
+                          <AddToCartButton
                             productId={productId}
                             productOwnerId={product._ownerId}
                           />
