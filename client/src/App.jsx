@@ -15,6 +15,7 @@ import AuthGuard from "./guard/AuthGuard";
 import ErrorPage from "./pages/ErrorPage";
 import ErrorBoundary from "./components/Error/ErrorBoundary";
 import CatalogCategoryPage from "./pages/CatalogCategoryPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -24,7 +25,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/catalog/:categoryTitle" element={<CatalogCategoryPage />} />
+          <Route
+            path="/catalog/:categoryTitle"
+            element={<CatalogCategoryPage />}
+          />
           <Route
             path="/catalog/:productId/details"
             element={<ProductDetailsPage />}
@@ -35,6 +39,7 @@ function App() {
           <Route element={<AuthGuard />}>
             <Route path="/create" element={<CreatePage />} />
             <Route path="/catalog/:productId/edit" element={<EditPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
             <Route path="/logout" element={<Logout />} />
           </Route>
 

@@ -29,6 +29,10 @@ export const request = async (method, url, data) => {
     return {};
   }
 
+  if (response.status === 403) {
+    throw new Error("Email address or password incorrect");
+  }
+
   const result = await response.json();
 
   if (!response.ok) {
