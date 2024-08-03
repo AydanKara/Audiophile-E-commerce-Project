@@ -31,12 +31,29 @@
     justify-content: space-evenly;
 }
 
-.profile-section-wrapper .profile-products-item {
-    flex-basis: 30%;
+.profile-section-wrapper .slide-track {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.profile-section-wrapper .slick-track {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.profile-section-wrapper .slick-initialized .slick-slide > div {
+    height: 47rem;
+    margin-top: 6.4rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profile-section-wrapper .profile-products-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 }
 
 .profile-section-wrapper .profile-products-media {
@@ -45,12 +62,74 @@
 }
 
 .profile-section-wrapper .profile-products-media img {
-    width: 100%;
+    width: 28rem;
     height: 100%;
+    object-fit: cover;
     border-radius: 8px;
 }
 
 .profile-section-wrapper h5 {
     font-size: 2rem;
     margin: 4rem 0 3.2rem 0;
+}
+
+.profile-section-wrapper p {
+    margin: 3rem 0;
+}
+
+/* Container for the dots */
+.slick-dots {
+    position: absolute;
+    bottom: 10px;
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Each dot */
+.slick-dots li {
+    margin: 0 5px;
+    /* Space between dots */
+}
+
+/* Dot button */
+.slick-dots li button {
+    font-size: 0;
+    /* Remove default button text */
+    width: 12px;
+    /* Width of the dot */
+    height: 12px;
+    /* Height of the dot */
+    border-radius: 50%;
+    /* Make it round */
+    background-color: #D87D4A;
+    /* Default color */
+    border: none;
+    /* Remove default border */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    outline: none;
+    /* Remove default outline */
+    transition: background-color 0.3s ease;
+    /* Smooth color transition */
+}
+
+/* Active dot */
+.slick-dots li.slick-active button {
+    background-color: #000;
+    /* Active dot color */
+}
+
+/* Hover effect */
+.slick-dots li button:hover {
+    background-color: #888;
+    /* Hover color */
+}
+
+.slick-prev:before, .slick-next:before {
+    font-size: 2.6rem;
+    color: #000 !important;
 }

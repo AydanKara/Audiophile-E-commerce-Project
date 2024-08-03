@@ -1,10 +1,13 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
 import AuthContext from "../context/authContext";
 import * as cartService from "../services/cartService";
 import * as likeService from "../services/likeService";
 import * as productService from "../services/productService";
 import "../styles/profile-page.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ProfilePage = () => {
   const { userId, isAuthenticated, username } = useContext(AuthContext);
@@ -41,6 +44,46 @@ const ProfilePage = () => {
     return <p>You must be logged in to view your profile.</p>;
   }
 
+  const getSliderSettings = (items) => ({
+    dots: true,
+    infinite: items.length > 3,
+    speed: 500,
+    slidesToShow: Math.min(3, items.length),
+    slidesToScroll: 2,
+    initialSlide: 0,
+    appendDots: (dots) => (
+      <div style={{ position: "relative" }}>
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+    responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+  });
+
   return (
     <main>
       <div className="site-heading">
@@ -51,19 +94,19 @@ const ProfilePage = () => {
           <div className="profile-products">
             <h3>Products in Cart</h3>
             {cartItems.length > 0 ? (
-              <ul className="profile-products-list">
+              <Slider {...getSliderSettings(cartItems)}>
                 {cartItems.map((item) => (
-                  <li key={item._id} className="profile-products-item">
+                  <div key={item._id} className="profile-products-item">
                     <div className="profile-products-media">
                       <img src={item.image} alt="Product Image" />
                     </div>
                     <h5>{item.name}</h5>
-                    <Link to={`/catalog/${item._id}`} className="btn-1">
+                    <Link to={`/catalog/${item._id}/details`} className="btn-1">
                       See Product
                     </Link>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </Slider>
             ) : (
               <p>Your cart is empty.</p>
             )}
@@ -71,19 +114,19 @@ const ProfilePage = () => {
           <div className="profile-products">
             <h3>Liked Products</h3>
             {likedItems.length > 0 ? (
-              <ul className="profile-products-list">
-                {likedItems.map((item) => (
-                  <li key={item._id} className="profile-products-item">
+              <Slider {...getSliderSettings(likedItems)}>
+              {likedItems.map((item) => (
+                <div key={item._id} className="profile-products-item">
                   <div className="profile-products-media">
                     <img src={item.image} alt="Product Image" />
                   </div>
                   <h5>{item.name}</h5>
-                  <Link to={`/catalog/${item._id}`} className="btn-1">
+                  <Link to={`/catalog/${item._id}/details`} className="btn-1">
                     See Product
                   </Link>
-                </li>
-                ))}
-              </ul>
+                </div>
+              ))}
+            </Slider>
             ) : (
               <p>You haven`t liked any products yet.</p>
             )}
