@@ -20,6 +20,9 @@ const Header = () => {
               <li className="nav-item">
                 <Link to="/catalog">Catalog</Link>
               </li>
+              <li className="nav-item">
+                <Link to="/contact">Contact</Link>
+              </li>
               {isAuthenticated && (
                 <>
                   <li className="nav-item">

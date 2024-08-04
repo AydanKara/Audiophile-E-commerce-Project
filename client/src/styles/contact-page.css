@@ -1,0 +1,50 @@
+.map {
+    margin-bottom: 10rem;
+    width: 100%;
+    height: 500px;
+}
+
+.contact-form {
+    max-width: 100rem;
+}
+
+.contact-form h2 {
+    margin-bottom: 4rem;
+    font-size: 3.2rem;
+}
+
+.contact-form-wrapper {
+    display: flex;
+    gap: 4rem;
+}
+
+.contact-form-wrapper .contact-form-col1 {
+    width: 60%;
+}
+
+.contact-form-wrapper .contact-form-col2 {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col-list {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 5rem;
+}
+.col-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.col-item svg {
+    font-size: 5rem;
+}

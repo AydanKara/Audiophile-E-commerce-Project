@@ -16,36 +16,43 @@ import ErrorPage from "./pages/ErrorPage";
 import ErrorBoundary from "./components/Error/ErrorBoundary";
 import CatalogCategoryPage from "./pages/CatalogCategoryPage";
 import ProfilePage from "./pages/ProfilePage";
+import ContactPage from "./pages/ContactPage";
+import { ContactProvider } from "./context/contactContext";
 
 function App() {
   return (
     <ErrorBoundary>
       <AuthProvider>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route
-            path="/catalog/:categoryTitle"
-            element={<CatalogCategoryPage />}
-          />
-          <Route
-            path="/catalog/:productId/details"
-            element={<ProductDetailsPage />}
-          />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+        <ContactProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/catalog" element={<CatalogPage />} />
+            <Route
+              path="/catalog/:categoryTitle"
+              element={<CatalogCategoryPage />}
+            />
+            <Route
+              path="/catalog/:productId/details"
+              element={<ProductDetailsPage />}
+            />
 
-          <Route element={<AuthGuard />}>
-            <Route path="/create" element={<CreatePage />} />
-            <Route path="/catalog/:productId/edit" element={<EditPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/logout" element={<Logout />} />
-          </Route>
+            <Route path="/contact" element={<ContactPage />} />
 
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-        <Footer />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+
+            <Route element={<AuthGuard />}>
+              <Route path="/create" element={<CreatePage />} />
+              <Route path="/catalog/:productId/edit" element={<EditPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/logout" element={<Logout />} />
+            </Route>
+
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+          <Footer />
+        </ContactProvider>
       </AuthProvider>
     </ErrorBoundary>
   );
