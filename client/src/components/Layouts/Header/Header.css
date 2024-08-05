@@ -42,10 +42,11 @@ nav {
     background: none;
     border: none;
     cursor: pointer;
-    transition: .3s ease-in-out color;
+    transition: all .3s ease-in-out;
 }
 
-.nav-item:hover {
+.nav-item:hover, .active {
+    font-size: 1.4rem;
     color: var(--color-orange);
 }
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { useContext } from "react";
 import AuthContext from "../../../context/authContext";
@@ -15,21 +15,31 @@ const Header = () => {
           <nav>
             <ul id="nav-list">
               <li className="nav-item">
-                <Link to="/">HOME</Link>
+                <NavLink to="/" activeClassName="active">
+                  HOME
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/catalog">Catalog</Link>
+                <NavLink to="/catalog" activeClassName="active">
+                  Catalog
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/contact">Contact</Link>
+                <NavLink to="/contact" activeClassName="active">
+                  Contact
+                </NavLink>
               </li>
               {isAuthenticated && (
                 <>
                   <li className="nav-item">
-                    <Link to="/create">Create</Link>
+                    <NavLink to="/create" activeClassName="active">
+                      Create
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <Link to="/profile">Profile</Link>
+                    <NavLink to="/profile" activeClassName="active">
+                      Profile
+                    </NavLink>
                   </li>
                   <li className="nav-item">
                     <Link to="/logout">Logout</Link>
@@ -39,10 +49,14 @@ const Header = () => {
               {!isAuthenticated && (
                 <>
                   <li className="nav-item">
-                    <Link to="/register">Register</Link>
+                    <NavLink to="/register" activeClassName="active">
+                      Register
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <Link to="/login">Login</Link>
+                    <NavLink to="/login" activeClassName="active">
+                      Login
+                    </NavLink>
                   </li>
                 </>
               )}
