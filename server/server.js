@@ -1446,47 +1446,6 @@
     sessions: {},
   };
   var seedData = {
-    recipes: {
-      "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-        name: "Easy Lasagna",
-        img: "assets/lasagna.jpg",
-        ingredients: [
-          "1 tbsp Ingredient 1",
-          "2 cups Ingredient 2",
-          "500 g  Ingredient 3",
-          "25 g Ingredient 4",
-        ],
-        steps: ["Prepare ingredients", "Mix ingredients", "Cook until done"],
-        _createdOn: 1613551279012,
-      },
-      "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-        name: "Grilled Duck Fillet",
-        img: "assets/roast.jpg",
-        ingredients: [
-          "500 g  Ingredient 1",
-          "3 tbsp Ingredient 2",
-          "2 cups Ingredient 3",
-        ],
-        steps: ["Prepare ingredients", "Mix ingredients", "Cook until done"],
-        _createdOn: 1613551344360,
-      },
-      "985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
-        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-        name: "Roast Trout",
-        img: "assets/fish.jpg",
-        ingredients: [
-          "4 cups Ingredient 1",
-          "1 tbsp Ingredient 2",
-          "1 tbsp Ingredient 3",
-          "750 g  Ingredient 4",
-          "25 g Ingredient 5",
-        ],
-        steps: ["Prepare ingredients", "Mix ingredients", "Cook until done"],
-        _createdOn: 1613551388703,
-      },
-    },
     categories: {
       category_1: {
         title: "Headphones",
@@ -1551,6 +1510,33 @@
           "Connect via Bluetooth or nearly any wired source. This speaker features optical, digital coaxial, USB Type-B, stereo RCA, and stereo XLR inputs, allowing you to have up to five wired source devices connected for easy switching. Improved bluetooth technology offers near lossless audio quality at up to 328ft (100m). Discover clear, more natural sounding highs than the competition with ZX9’s signature planar diaphragm tweeter. Equally important is its powerful room-shaking bass courtesy of a 6.5” aluminum alloy bass unit. You’ll be able to enjoy equal sound quality whether in a large room or small den. Furthermore, you will experience new sensations from old songs since it can respond to even the subtle waveforms.",
         _createdOn: 1721664547583,
         _id: "2778dcc9-3386-425f-be4c-fcf3cd03736d",
+      },
+      "a6220f31-f68c-47f3-907d-0c03ae18d774": {
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+        category: "Earphones",
+        name: "Xiaomi Redmi Buds",
+        image:
+          "https://i.ebayimg.com/thumbs/images/g/G38AAOSw6epmXscz/s-l500.jpg",
+        price: "100",
+        description:
+          "Stable connectivity: Xiaomi Redmi Buds 4 Active use Bluetooth 5.3 for lower latency and more stability.",
+        features:
+          "Answer incoming calls, play music and other daily operations can be done with a single touch of finger on the back of the headset, long press with two fingers on the headset can start playing mode and turn on and off the low latency function.",
+        _createdOn: 1723225809025,
+        _id: "a6220f31-f68c-47f3-907d-0c03ae18d774",
+      },
+      "4563a5da-2203-423b-8bf7-dd83375ae34c": {
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+        category: "Earphones",
+        name: "TWS Earphones",
+        image: "https://i.ebayimg.com/images/g/GxQAAOSwRuxmj7Hv/s-l500.webp",
+        price: "25",
+        description:
+          "100% brand new and high-quality made.\nTotally wireless high-performance earphones with stable Bluetooth 5.4 connection.\n",
+        features:
+          "Up to 5 hours of listening time and talk time (more than 25-30 hours with charging case). Equipped with CVC8.0 intelligent noise reduction technology.\nIn-ear design allows for extreme comfort and stability.\nReinforced design for sweat & IPX5 water resistance.\nGreat for workout & daily use.",
+        _createdOn: 1723225953700,
+        _id: "4563a5da-2203-423b-8bf7-dd83375ae34c",
       },
     },
     cart: {},

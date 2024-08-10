@@ -49,7 +49,7 @@ const ProfilePage = () => {
     infinite: items.length > 3,
     speed: 500,
     slidesToShow: Math.min(3, items.length),
-    slidesToScroll: 2,
+    slidesToScroll: 3,
     initialSlide: 0,
     appendDots: (dots) => (
       <div style={{ position: "relative" }}>

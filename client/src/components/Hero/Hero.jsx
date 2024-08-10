@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Hero.css"
 
 const Hero = () => {
@@ -10,7 +11,7 @@ const Hero = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <button className="btn-1">See All Products</button>
+          <Link to="/catalog" className="btn-1">See All Products</Link>
         </div>
       </div>
     </section>

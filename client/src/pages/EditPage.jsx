@@ -36,7 +36,7 @@ const EditPage = () => {
           {errors.category && <span className="error">{errors.category}</span>}
           <select
             name="category"
-            value={values.category}
+            value={values?.category}
             onChange={onChange}
             id="category"
             className={errors.category ? "error-input" : ""}
@@ -55,7 +55,7 @@ const EditPage = () => {
             name="name"
             id="name"
             onChange={onChange}
-            value={values.name}
+            value={values?.name}
             className={errors.name ? "error-input" : ""}
           />
         </p>
@@ -67,7 +67,7 @@ const EditPage = () => {
             name="image"
             id="image"
             onChange={onChange}
-            value={values.image}
+            value={values?.image}
             className={errors.image ? "error-input" : ""}
           />
         </p>
@@ -79,7 +79,7 @@ const EditPage = () => {
             name="price"
             id="price"
             onChange={onChange}
-            value={values.price}
+            value={values?.price}
             className={errors.price ? "error-input" : ""}
           />
         </p>
@@ -92,7 +92,7 @@ const EditPage = () => {
             name="description"
             id="description"
             onChange={onChange}
-            value={values.description}
+            value={values?.description}
             className={errors.description ? "error-input" : ""}
           ></textarea>
         </p>
@@ -103,11 +103,11 @@ const EditPage = () => {
             name="features"
             id="features"
             onChange={onChange}
-            value={values.features}
+            value={values?.features}
             className={errors.features ? "error-input" : ""}
           ></textarea>
         </p>
-        <button className="btn-1">Create Product</button>
+        <button className="btn-1">Edit Product</button>
       </form>
     </>
   );

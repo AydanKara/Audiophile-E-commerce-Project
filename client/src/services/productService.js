@@ -8,11 +8,8 @@ export const getAll = async () => {
 };
 
 export const featuredProducts = async () => {
-  const query = encodeURIComponent(`offset=0&pageSize=3`);
-
-  const result = await request.get(
-    `${baseUrl}?sortBy=_createdOn%20desc&${query}`
-  );
+  const query = "sortBy=_createdOn%20desc&offset=0&pageSize=3";
+  const result = await request.get(`${baseUrl}?${query}`);
 
   return result;
 };
