@@ -41,7 +41,7 @@ const ContactPage = () => {
     const existingScript = document.getElementById("googleMapsScript");
     if (!existingScript) {
       const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyA39Vhp0ipyj0ZeDB_zzntF81iNbsxY9gw&callback=initMap`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&callback=initMap`;
       script.id = "googleMapsScript";
       script.async = true;
       script.defer = true;
