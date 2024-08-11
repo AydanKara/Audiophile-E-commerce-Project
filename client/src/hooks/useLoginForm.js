@@ -25,6 +25,8 @@ const useLoginForm = (callback) => {
 
     if (!values.password) {
       errors.password = "Password is required";
+    } else if (values.password.length < 6) {
+      errors.password = "Password needs to be at least 6 characters";
     }
 
     return errors;
