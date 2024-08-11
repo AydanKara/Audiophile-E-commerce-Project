@@ -10,7 +10,9 @@
 <h2>Back-End</h2>
 
 <li>SoftUni Practice Server - REST service, created for educational purposes.</li>
-<p>https://github.com/softuni-practice-server/softuni-practice-server/blob/master/README.md</p>
+<br>
+
+[SoftUni Practice Server - Documentation](https://github.com/softuni-practice-server/softuni-practice-server/blob/master/README.md)
 
 <br>
 
@@ -54,21 +56,35 @@
 <br>
 
 <h2>Starting the app locally</h2>
-To run the application on your local machine, follow these steps:
-    1. Clone the repository:
-        - git clone https://github.com/AydanKara/Audiophile-E-commerce-Project.git
-        - cd audiophile
-    2. Start the Backend Server:
-        - Open a terminal and navigate to the server directory:
-        - cd server
-        - Start the server:
-        - node server.js
-    3. Start the Frontend:
-        - Open another terminal and navigate to the client directory:
-        - cd client
-        - Install dependencies:
-        - cd install
-        - Start the development server:
-        - npm run dev
+
+<h3>To run the application on your local machine, follow these steps:</h3>
+
+1. Clone the repository:
+```bash
+git clone https://github.com/AydanKara/Audiophile-E-commerce-Project.git
+```
+2. Start the Backend Server: <br>
+   2.1 Open a terminal and navigate to the server directory
+   ```bash
+   cd server
+   ```
+   2.2 Start the server
+   ```bash
+   node server.js
+   ```
+
+3. Start the Frontend: <br>
+    3.1 Open another terminal and navigate to the client directory
+   ```bash
+   cd client
+   ```
+   3.2 Install dependencies
+    ```bash
+   npm install
+    ```
+   3.3 Start the development server
+    ```bash
+    npm run dev
+    ```
 
 <h3>And you are ready to go!</h3>
