@@ -14,8 +14,12 @@ const Products = () => {
     <section className="container">
       <div className="products-wrapper">
         <ul className="product-list">
-          {products.map((product) => (
-            <ProductItem key={product._id} {...product} />
+          {products.map((product, index) => (
+            <ProductItem
+              key={product._id}
+              product={product}
+              isReversed={index % 2 !== 0}
+            />
           ))}
         </ul>
 

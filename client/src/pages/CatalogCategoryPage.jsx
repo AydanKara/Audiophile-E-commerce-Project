@@ -14,7 +14,6 @@ const CatalogCategoryPage = () => {
       .then((result) => setCategory(result));
   }, [categoryTitle]);
 
-  console.log(category);
   return (
     <main>
       <div className="category-heading">

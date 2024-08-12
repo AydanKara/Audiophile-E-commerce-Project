@@ -8,3 +8,16 @@
     gap: 16rem
 }
 
+.product-wrapper.reversed .col-1 {
+    order: 2;
+    justify-content: end;
+}
+
+.product-wrapper.reversed .col-2 {
+    order: 1;
+}
+
+.product-wrapper.reversed .product-info {
+    padding-left: 0;
+    max-width: 44.3rem;
+}
