@@ -47,10 +47,10 @@
 <h4>Additional Features for Logged-In Users:</h4>
 
 <ul>
-* Create Products: Registered users can create new product entries and submit requests to the REST API.<br>
-* Edit/Delete Products: Product authors can edit or delete their own products. <br>
-* Interact with Products: Non-authors can like products and add them to their cart.<br>
-* Comment on Products: Logged-in users can leave comments on product pages.<br>
+&#x1F5F8 Create Products: Registered users can create new product entries and submit requests to the REST API.<br>
+&#x1F5F8 Edit/Delete Products: Product authors can edit or delete their own products. <br>
+&#x1F5F8 Interact with Products: Non-authors can like products and add them to their cart.<br>
+&#x1F5F8 Comment on Products: Logged-in users can leave comments on product pages.<br>
 </ul>
 
 <br>
