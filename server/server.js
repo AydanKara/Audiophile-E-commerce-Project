@@ -145,6 +145,12 @@
 
       async function handle(context) {
         const { serviceName, tokens, query, body } = await parseRequest(req);
+
+        console.log("Service Name:", serviceName);
+        console.log("Tokens:", tokens);
+        console.log("Query:", query);
+        console.log("Body:", body);
+
         if (serviceName == "admin") {
           return ({ headers, result } = services["admin"](
             method,
