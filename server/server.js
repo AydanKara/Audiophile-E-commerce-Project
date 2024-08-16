@@ -87,7 +87,7 @@
       // Redirect fix for admin panel relative paths
       if (req.url.slice(-6) == "/admin") {
         res.writeHead(302, {
-          Location: `http://${req.headers.host}/admin/`,
+          Location: `https://${req.headers.host}/admin/`,
         });
         return res.end();
       }
@@ -144,32 +144,7 @@
       }
 
       async function handle(context) {
-        const { req, res } = context; // Extract req and res from context
         const { serviceName, tokens, query, body } = await parseRequest(req);
-
-        // Set CORS headers
-        res.setHeader("Access-Control-Allow-Origin", "*"); // Allow any origin
-        res.setHeader(
-          "Access-Control-Allow-Methods",
-          "GET, POST, PUT, DELETE, OPTIONS"
-        );
-        res.setHeader(
-          "Access-Control-Allow-Headers",
-          "Content-Type, Authorization"
-        );
-
-        // Handle preflight requests (OPTIONS method)
-        if (req.method === "OPTIONS") {
-          res.writeHead(204); // No Content
-          res.end();
-          return;
-        }
-
-        let status = 200;
-        let result;
-        let headers = {
-          "Content-Type": "application/json",
-        };
 
         if (serviceName == "admin") {
           return ({ headers, result } = services["admin"](
@@ -222,7 +197,7 @@
   }
 
   async function parseRequest(req) {
-    const url = new URL(req.url, `http://${req.headers.host}`);
+    const url = new URL(req.url, `https://${req.headers.host}`);
     console.log("URL: ", url);
     const tokens = url.pathname.split("/").filter((x) => x.length > 0);
     console.log("Tokens: ", tokens);
