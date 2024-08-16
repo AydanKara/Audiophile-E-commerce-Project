@@ -1,7 +1,7 @@
 import * as request from "../api/request";
 
-const categoriesUrl = "http://localhost:3030/data/categories";
-const productsUrl = "http://localhost:3030/data/products";
+const categoriesUrl = "http://audiophile-e-commerce-project-2.onrender.com/data/categories";
+const productsUrl = "http://audiophile-e-commerce-project-2.onrender.com/data/products";
 
 export const getCategories = async () => {
   const result = await request.get(`${categoriesUrl}`);

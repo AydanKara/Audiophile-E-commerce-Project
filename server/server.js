@@ -144,7 +144,32 @@
       }
 
       async function handle(context) {
+        const { req, res } = context; // Extract req and res from context
         const { serviceName, tokens, query, body } = await parseRequest(req);
+
+        // Set CORS headers
+        res.setHeader("Access-Control-Allow-Origin", "*"); // Allow any origin
+        res.setHeader(
+          "Access-Control-Allow-Methods",
+          "GET, POST, PUT, DELETE, OPTIONS"
+        );
+        res.setHeader(
+          "Access-Control-Allow-Headers",
+          "Content-Type, Authorization"
+        );
+
+        // Handle preflight requests (OPTIONS method)
+        if (req.method === "OPTIONS") {
+          res.writeHead(204); // No Content
+          res.end();
+          return;
+        }
+
+        let status = 200;
+        let result;
+        let headers = {
+          "Content-Type": "application/json",
+        };
 
         if (serviceName == "admin") {
           return ({ headers, result } = services["admin"](
