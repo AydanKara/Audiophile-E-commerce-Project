@@ -23,7 +23,6 @@ export const request = async (method, url, data) => {
   const response = await fetch(url, {
     ...buildOptions(data),
     method,
-    mode: "no-cors",
   });
 
   if (response.status === 204) {

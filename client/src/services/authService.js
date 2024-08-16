@@ -1,6 +1,6 @@
 import * as request from "../api/request";
 
-const baseUrl = "http://audiophile-e-commerce-project-2.onrender.com/users";
+const baseUrl = "https://audiophile-e-commerce-project-2.onrender.com/users";
 
 export const login = async (email, password) => {
   const result = await request.post(`${baseUrl}/login`, {

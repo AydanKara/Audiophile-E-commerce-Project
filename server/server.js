@@ -198,11 +198,8 @@
 
   async function parseRequest(req) {
     const url = new URL(req.url, `https://${req.headers.host}`);
-    console.log("URL: ", url);
     const tokens = url.pathname.split("/").filter((x) => x.length > 0);
-    console.log("Tokens: ", tokens);
     const serviceName = tokens.shift();
-    console.log("Service name: ", serviceName);
     const queryString = url.search.split("?")[1] || "";
     const query = queryString
       .split("&")

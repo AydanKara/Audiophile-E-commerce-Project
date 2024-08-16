@@ -1,6 +1,6 @@
 import * as request from "../api/request";
 
-const baseUrl = "http://audiophile-e-commerce-project-2.onrender.com/data/products";
+const baseUrl = "https://audiophile-e-commerce-project-2.onrender.com/data/products";
 
 export const getAll = async () => {
   const result = await request.get(`${baseUrl}`);

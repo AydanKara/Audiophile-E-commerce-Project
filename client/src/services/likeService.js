@@ -1,6 +1,6 @@
 import * as request from "../api/request";
 
-const baseUrl = "http://audiophile-e-commerce-project-2.onrender.com/data/likes";
+const baseUrl = "https://audiophile-e-commerce-project-2.onrender.com/data/likes";
 
 export const createLike = async (productId, userId) => {
   return await request.post(baseUrl, { productId, userId });

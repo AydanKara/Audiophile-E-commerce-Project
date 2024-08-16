@@ -1,6 +1,6 @@
 import * as request from "../api/request";
 
-const baseUrl = "http://audiophile-e-commerce-project-2.onrender.com/data/comments";
+const baseUrl = "https://audiophile-e-commerce-project-2.onrender.com/data/comments";
 
 export const getProductsComments = async (productId) => {
   const query = new URLSearchParams({
