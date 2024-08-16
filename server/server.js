@@ -164,7 +164,7 @@
 
         const service = services[serviceName];
 
-        if (service === undefined) {
+        /* if (service === undefined) {
           status = 400;
           result = composeErrorObject(
             400,
@@ -173,7 +173,9 @@
           console.error("Missing service " + serviceName);
         } else {
           result = await service(context, { method, tokens, query, body });
-        }
+        } */
+
+        result = await service(context, { method, tokens, query, body });
 
         // NOTE: logout does not return a result
         // in this case the content type header should be omitted, to allow checks on the client
