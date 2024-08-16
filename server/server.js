@@ -146,11 +146,6 @@
       async function handle(context) {
         const { serviceName, tokens, query, body } = await parseRequest(req);
 
-        console.log("Service Name:", serviceName);
-        console.log("Tokens:", tokens);
-        console.log("Query:", query);
-        console.log("Body:", body);
-
         if (serviceName == "admin") {
           return ({ headers, result } = services["admin"](
             method,
@@ -201,8 +196,11 @@
 
   async function parseRequest(req) {
     const url = new URL(req.url, `http://${req.headers.host}`);
+    console.log("URL: ", url);
     const tokens = url.pathname.split("/").filter((x) => x.length > 0);
+    console.log("Tokens: ", tokens);
     const serviceName = tokens.shift();
+    console.log("Service name: ", serviceName);
     const queryString = url.search.split("?")[1] || "";
     const query = queryString
       .split("&")
